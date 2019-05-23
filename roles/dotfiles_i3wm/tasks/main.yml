@@ -1,0 +1,4 @@
+---
+
+- include_tasks: additional_scripts.yml
+- inckude_tasks: i3_config.yml

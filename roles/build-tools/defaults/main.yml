@@ -1,0 +1,6 @@
+---
+
+packages:
+  - gcc
+  - cmake
+  - automake

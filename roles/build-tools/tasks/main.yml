@@ -1,0 +1,6 @@
+---
+
+- name: Install build tools
+  package:
+    name: "{{ packages }}"
+    state: present

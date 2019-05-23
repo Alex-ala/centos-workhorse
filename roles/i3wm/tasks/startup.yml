@@ -1,0 +1,5 @@
+---
+
+- name: Boot into graphical userinterface
+
+- name: Start xserver and i3 at login

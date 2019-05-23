@@ -1,0 +1,12 @@
+---
+
+- name: Create local repo
+  file:
+    path: /srv/yum-repo
+    state: directory
+
+- name: Copy repo files
+  copy:
+    src: "{{item}}"
+    dest: /etc/yum.repos.d
+  with_fileglob: "files/*"

@@ -1,0 +1,6 @@
+---
+
+- name: Install Slack repo from packagecloud
+  yum:
+    name: epel-release
+    state: present

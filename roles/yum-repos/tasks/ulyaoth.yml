@@ -1,0 +1,6 @@
+---
+
+- name: Install Ulyaoth repo
+  yum:
+    name: https://downloads.ulyaoth.com/rpm/ulyaoth-latest.rhel.x86_64.rpm
+    state: present

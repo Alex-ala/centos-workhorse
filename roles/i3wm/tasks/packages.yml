@@ -1,0 +1,6 @@
+---
+
+- name: Install i3wm
+  package:
+    name: "i3"
+    state: present

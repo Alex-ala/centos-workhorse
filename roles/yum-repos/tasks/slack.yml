@@ -1,0 +1,5 @@
+---
+
+- name: Install Slack repo from packagecloud
+  shell: |
+    curl -s https://packagecloud.io/install/repositories/slacktechnologies/slack/script.rpm.sh | sudo bash
