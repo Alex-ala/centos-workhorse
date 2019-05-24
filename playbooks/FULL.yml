@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - yum-repos
+    - build-tools
+    - i3wm

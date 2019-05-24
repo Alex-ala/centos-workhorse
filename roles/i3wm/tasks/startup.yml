@@ -1,5 +1,7 @@
 ---
 
 - name: Boot into graphical userinterface
+  shell: |
+    systemctl set-default graphical.target
 
-- name: Start xserver and i3 at login
+#- name: Start xserver and i3 at login
