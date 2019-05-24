@@ -6,6 +6,17 @@
     path: /srv/yum-repo
     state: directory
 
+- name: Install createrepo
+  become: true
+  yum:
+    name: createrepo
+    state: present
+
+- name: Create local repo (for real)
+  become: true
+  shell: |
+    createrepo /srv/yum-repo
+
 - name: Copy repo files
   become: true
   copy:
