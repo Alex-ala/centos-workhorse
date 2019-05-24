@@ -1,0 +1,4 @@
+dbus-update-activation-environment --systemd DISPLAY
+export $(dbus-launch)
+# FINALLY start i3
+i3 > ~/.i3.log
