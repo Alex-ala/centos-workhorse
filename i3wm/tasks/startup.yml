@@ -1,6 +1,7 @@
 ---
 
 - name: Boot into graphical userinterface
+  become: true
   shell: |
     systemctl set-default graphical.target
 

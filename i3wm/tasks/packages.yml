@@ -1,6 +1,7 @@
 ---
 
 - name: Install i3wm
+  become: true
   package:
     name: "i3"
     state: present

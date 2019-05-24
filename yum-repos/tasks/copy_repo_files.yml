@@ -1,11 +1,13 @@
 ---
 
 - name: Create local repo
+  become: true
   file:
     path: /srv/yum-repo
     state: directory
 
 - name: Copy repo files
+  become: true
   copy:
     src: "{{item}}"
     dest: /etc/yum.repos.d
