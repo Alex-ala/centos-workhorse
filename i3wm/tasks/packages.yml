@@ -3,5 +3,8 @@
 - name: Install i3wm
   become: true
   package:
-    name: "i3"
+    name:
+      - "i3"
+      - "xorg-x11-server-Xorg"
+      - "xorg-x11-xinit"
     state: present
