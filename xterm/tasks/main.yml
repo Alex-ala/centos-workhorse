@@ -1,0 +1,10 @@
+---
+
+- name: Install xterm
+  become: true
+  package:
+    name: xterm
+    state: present
+
+
+#TODO implement (xresources)

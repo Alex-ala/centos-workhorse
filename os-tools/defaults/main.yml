@@ -1,0 +1,9 @@
+---
+
+packages:
+  - vim
+  - htop
+  - bind-utils
+  - net-tools
+  - ps-utils
+  - jq

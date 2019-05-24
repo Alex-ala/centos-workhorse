@@ -1,0 +1,7 @@
+---
+
+- name: Install ui tools
+  become: true
+  package:
+    name: "{{ packages }}"
+    state: present

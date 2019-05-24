@@ -5,4 +5,7 @@
   shell: |
     systemctl set-default graphical.target
 
-#- name: Start xserver and i3 at login
+- name: Start i3 on X-Server start
+  copy:
+    src: files/xinitrc
+    dest: /home/{{ user }}/.xinitrc

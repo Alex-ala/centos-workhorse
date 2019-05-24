@@ -1,0 +1,7 @@
+---
+
+- name: Install os tools
+  become: true
+  package:
+    name: "{{ packages }}"
+    state: present
