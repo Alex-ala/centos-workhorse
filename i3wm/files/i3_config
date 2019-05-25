@@ -93,6 +93,8 @@ bindsym $mod+Shift+KP_9 move container to workspace number 19
 
 bindsym $mod+KP_Add move workspace to output right
 bindsym $mod+KP_Subtract move workspace to output left
+bindsym $mod+Shift+Prior move workspace to output left
+bindsym $mod+Shift+Next move workspace to output left
 
 # Special modes
 mode "(r)eboot (p)oweroff (e)xit-i3" {
@@ -158,6 +160,7 @@ bindsym $mod+XF86AudioRaiseVolume exec  spotifyctl next
 
 ## shortcut
 bindsym $mod+backslash exec vivaldi
+bindsym $mod+Dollar exec vivaldi
 bindsym $mod+Print exec scrot
 bindsym $mod+Shift+v exec "copyq select 1"
 bindsym $mod+c exec "copyq show"
