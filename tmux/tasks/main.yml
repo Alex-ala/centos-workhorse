@@ -3,7 +3,7 @@
 - name: Check if tmux is installed
   shell: which tmux
   changed_when: false
-  ignore_erros: yes
+  ignore_errors: yes
   register: tmux
 
 - block:
