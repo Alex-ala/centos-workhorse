@@ -55,6 +55,7 @@
     state: directory
 
 - name: Make zsh the default shell
+  become: true
   user:
     name: "{{ user }}"
     shell: /usr/local/bin/zsh
