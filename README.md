@@ -6,6 +6,8 @@ Variables:
  - user: user to apply configs to
  - update_dunst: updates dunst from source if set 
  - update_tmux: updates tmux from source if set. Please specify release URL in tmux/defaults
+ - update_feh: updates feh from source if set. Please specify release URL in feh/defaults
+ - update_zsh: updates zsh from source if set. Please specify release URL in zsh/defaults
 
 
 Things I want:

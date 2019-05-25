@@ -1,0 +1,50 @@
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' max-errors 1
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl true
+zstyle :compinstall filename '~/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+unsetopt autocd
+bindkey -e
+
+source ~/.zplug/init.zsh
+
+
+zplug "zsh-users/zsh-history-substring-search"
+zplug "chrissicool/zsh-256color"
+zplug "Cloudstek/zsh-plugin-appup"
+zplug "desyncr/auto-ls"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "Tarrasch/zsh-bd"
+zplug "arzzen/calc.plugin.zsh"
+zplug "webyneter/docker-aliases", use:docker-aliases.plugin.zsh
+zplug "valentinocossar/sublime"
+zplug "skx/sysadmin-util"
+zplug "laggardkernel/thefuck"
+zplug "sindresorhus/pretty-time-zsh"
+zplug "arzzen/calc.plugin.zsh"
+zplug "sparsick/ansible-zsh"
+zplug "soimort/translate-shell"
+zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+fpath=(~/.zsh.d $fpath)
+source ~/.zsh.d/work.bashrc

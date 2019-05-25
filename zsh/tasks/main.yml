@@ -1,0 +1,36 @@
+---
+
+- name: Check if zsh is installed
+  shell: which zsh
+  changed_when: false
+  ignore_errors: yes
+  register: zsh
+
+- block:
+    - name: Create tmp dir
+      file:
+        path: /tmp/zsh
+        state: directory
+
+    - name: Download zsh
+      unarchive:
+        remote_src: true
+        src: "{{ zsh_url }}"
+        dest: /tmp/zsh
+        list_files: true
+      register: zsh_dir
+
+    - name: Install zsh
+      become: true
+      shell: |
+        ./configure && make && make install
+      args:
+        chdir: "/tmp/zsh/{{ zsh_dir.files | last | dirname }}"
+
+    - name: Cleanup
+      become: true
+      file:
+        path: /tmp/zsh
+        state: absent
+
+  when: zsh.rc != 0 or update_zsh is defined
