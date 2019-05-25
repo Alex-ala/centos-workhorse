@@ -1,0 +1,27 @@
+---
+
+- name: Check if copyq is installed
+  shell: which copyq
+  changed_when: false
+  ignore_errors: yes
+  register: copyq
+
+- block:
+    - name: Download copyq
+      become: true
+      get_url:
+        url: "{{ copyq_url }}"
+        dest: /srv/yum-repo/
+
+    - name: Update repo
+      become: true
+      shell: createrepo /srv/yum-repo
+
+    - name: Install copyq
+      become: true
+      yum:
+        name: copyq
+        state: present
+        update_cache: true
+
+  when: copyq.rc != 0 or update_copyq is defined
