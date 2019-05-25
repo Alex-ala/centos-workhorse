@@ -13,9 +13,14 @@
         state: directory
 
     - name: Download zsh
+      get_url:
+        dest: /tmp/zsh.tar
+        timeout: 60
+        url: "{{ zsh_url }}"
+
+    - name: Unpack zsh
       unarchive:
-        remote_src: true
-        src: "{{ zsh_url }}"
+        src: /tmp/zsh.tar
         dest: /tmp/zsh
         list_files: true
       register: zsh_dir
