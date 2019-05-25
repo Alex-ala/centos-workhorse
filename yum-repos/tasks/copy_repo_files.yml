@@ -11,11 +11,13 @@
   yum:
     name: createrepo
     state: present
+  register: localrepo
 
 - name: Create local repo (for real)
   become: true
   shell: |
     createrepo /srv/yum-repo
+  when: localrepo is changed
 
 - name: Copy repo files
   become: true

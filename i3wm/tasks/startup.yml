@@ -10,7 +10,7 @@
   become: true
   shell: |
     systemctl set-default graphical.target
-  when: "target.stdout != graphical.target"
+  when: "target.stdout != 'graphical.target'"
 
 - name: Start i3 on X-Server start
   copy:
