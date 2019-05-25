@@ -18,7 +18,7 @@
           - pango-devel
           - gtk3-devel
           - libnotify
-      state: present
+        state: present
 
     - name: Clone Dunst repo
       git:
