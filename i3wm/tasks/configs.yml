@@ -4,3 +4,8 @@
   copy:
     src: files/i3_config
     dest: /home/{{ user }}/.config/i3/config
+
+- name: Copy .i3 folder
+  copy:
+    src: files/i3
+    dest: /home/{{ user }}/.i3

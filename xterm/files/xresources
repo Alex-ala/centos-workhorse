@@ -7,10 +7,10 @@ Xft.autohint:   false
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 Xft.rgba:       rgb
-Xft.d[pi:       160
+Xft.dpi:        160
 
 
-XTerm*faceName: SauceCodePro Nerd Font:style=Regular:size=11
+XTerm*faceName: FuraMono Nerd Font Mono:style=Medium,Regular
 XTerm*renderFont: true
 XTerm*letterSpace: 1
 XTerm*borderless:         true

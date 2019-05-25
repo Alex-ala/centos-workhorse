@@ -15,7 +15,7 @@ set $tag0 
 
 # Modifier = Windows
 set $mod Mod4
-font pango:SauceCodePro Nerd Font Regular 11
+font pango:FuraMono Nerd Font Mono:style=Medium,Regular
 new_window pixel 2
 floating_modifier $mod
 focus_follows_mouse no
