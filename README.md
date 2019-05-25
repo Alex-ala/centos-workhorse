@@ -26,7 +26,7 @@ Things I want:
 - [x] feh                           Built without curl, but who needs to open pictures via http
 - [x] copyq                         TODO: Config
 - [x] pcmanfm-qt
-- [ ] zsh + plugins
+- [x] zsh + plugins                 TODO: Powerline config + Aliases
 - [x] tmux + new config             TODO: Config
 - system shizzle
     - [ ] bluetooth

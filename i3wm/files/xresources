@@ -7,7 +7,7 @@ Xft.autohint:   false
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 Xft.rgba:       rgb
-Xft.dpi:        160
+Xft.dpi:        125
 
 
 XTerm*faceName: FuraMono Nerd Font Mono:style=Medium,Regular
