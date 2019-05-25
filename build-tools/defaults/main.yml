@@ -4,3 +4,4 @@ packages:
   - gcc
   - cmake
   - automake
+  - unzip
