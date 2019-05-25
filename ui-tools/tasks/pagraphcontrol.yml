@@ -53,12 +53,12 @@
       copy:
         remote_src: true
         src: /tmp/pagraphcontrol/dist/pagraphcontrol-linux-x64
-        dest: /srv/pagraphcontrol
+        dest: /srv/
 
     - name: Install symlink
       become: true
       file:
-        src: /srv/pagraphcontrol/pagraphcontrol
+        src: /srv/pagraphcontrol/pagraphcontrol-linux-x64
         dest: /usr/local/bin/pagraphcontrol
         state: link
 
