@@ -13,15 +13,15 @@
         dest: /tmp/tmux
 
     - name: Install tmux
-        become: true
-        shell: |
-          ./configure && make && make install
-        args:
-          chdir: /tmp/tmux
+      become: true
+      shell: |
+        ./configure && make && make install
+      args:
+        chdir: /tmp/tmux
 
-        - name: Cleanup
-          file:
-            path: /tmp/tmux
-            state: absent
+    - name: Cleanup
+      file:
+        path: /tmp/tmux
+        state: absent
 
   when: tmux.rc != 0 or update_tmux is defined
