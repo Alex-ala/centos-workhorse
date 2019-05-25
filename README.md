@@ -45,6 +45,7 @@ Things I want:
     - [x] jq
     - [x] net-tools
     - [ ] pagraphcontrol
+    - [ ] cronopete or similar
 - [ ] slack
 - [ ] rambox
 - [ ] vivaldi

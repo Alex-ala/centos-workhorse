@@ -53,3 +53,8 @@
   file:
     path: "/home/{{ user }}/.zsh.d"
     state: directory
+
+- name: Make zsh the default shell
+  user:
+    name: "{{ user }}"
+    shell: /usr/local/bin/zsh

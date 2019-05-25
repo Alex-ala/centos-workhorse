@@ -1,3 +1,69 @@
 ---
 
-# TODO
+- name: Check if npm is installed
+  shell: which npm
+  changed_when: false
+  ignore_errors: yes
+  register: npm
+
+- block:
+    - name: Install node repo
+      become: true
+      shell: curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+
+    - name: Install node
+      become: true
+      yum:
+        update_cache: true
+        name: nodejs
+        state: present
+
+    - name: Install yarn
+      become: true
+      npm:
+        name: yarn
+        global: yes
+
+  when: npm.rc != 0
+
+
+- name: Check if pagraphcontrol is installed
+  shell: which pagraphcontrol
+  changed_when: false
+  ignore_errors: yes
+  register: pag
+
+- block:
+    - name: Clone pagraphcontrol repo
+      git:
+        repo: https://github.com/futpib/pagraphcontrol.git
+        dest: /tmp/
+        depth: 1
+
+    - name: Build yarn thingy
+      become: true
+      shell: yarn install && yarn build
+      args:
+        chdir: /tmp/pagraphcontrol
+
+    - name: Move built tool somewhere useful
+      become: true
+      copy:
+        remote_src: true
+        src: /tmp/pagraphcontrol/dist/pagraphcontrol-linux-x64
+        dest: /srv/pagraphcontrol
+
+    - name: Install symlink
+      become: true
+      file:
+        src: /srv/pagraphcontrol/pagraphcontrol
+        dest: /usr/local/bin/pagraphcontrol
+        state: link
+
+    - name: Cleanup tmp
+      file:
+        path: /tmp/pagraphcontrol
+        state: absent
+
+  when: pag.rc != 0 or update_pagraphcontrol is defined
+
