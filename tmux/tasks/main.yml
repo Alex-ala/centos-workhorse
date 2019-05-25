@@ -7,6 +7,12 @@
   register: tmux
 
 - block:
+    - name: Install dependencies
+      yum:
+        name:
+          - libevent-devel
+          - ncurses-devel
+
     - name: Create tmp dir
       file:
         path: /tmp/tmux
@@ -17,13 +23,15 @@
         remote_src: true
         src: "{{ tmux_url }}"
         dest: /tmp/tmux
+        list_files: true
+      register: tmux_dir
 
     - name: Install tmux
       become: true
       shell: |
         ./configure && make && make install
       args:
-        chdir: /tmp/tmux
+        chdir: "/tmp/tmux/{{ tmux_dir.files | last | dirname }}"
 
     - name: Cleanup
       become: true
