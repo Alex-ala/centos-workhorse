@@ -5,7 +5,7 @@
   package:
     name:
       - "i3"
-      - "i3-lock"
+      - "i3lock"
       - "xterm"
     state: present
 
