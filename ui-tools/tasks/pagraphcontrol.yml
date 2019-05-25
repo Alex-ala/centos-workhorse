@@ -58,7 +58,7 @@
     - name: Install symlink
       become: true
       file:
-        src: /srv/pagraphcontrol/pagraphcontrol-linux-x64
+        src: /srv/pagraphcontrol-linux-x64/pagraphcontrol
         dest: /usr/local/bin/pagraphcontrol
         state: link
 
