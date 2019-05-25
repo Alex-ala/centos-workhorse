@@ -185,7 +185,7 @@ bindsym $mod+XF86AudioRaiseVolume exec  spotifyctl next
 
 ## shortcut
 bindsym $mod+backslash exec vivaldi
-bindsym $mod+Dollar exec vivaldi
+bindsym $mod+dollar exec vivaldi
 bindsym $mod+Print exec scrot
 bindsym $mod+Shift+v exec "copyq select 1"
 bindsym $mod+c exec "copyq show"

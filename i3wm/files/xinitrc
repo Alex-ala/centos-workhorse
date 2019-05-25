@@ -1,5 +1,6 @@
 dbus-update-activation-environment --systemd DISPLAY
 export $(dbus-launch)
 xrandr --output eDP1 --dpi 160
+xrdb ~/.Xresources
 # FINALLY start i3
 i3 > ~/.i3.log
