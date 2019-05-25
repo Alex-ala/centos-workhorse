@@ -9,4 +9,4 @@
 - name: Copy XResources
   copy:
     src: files/xresources
-    dest: "/home/{{ user }}/.Xresources
+    dest: "/home/{{ user }}/.Xresources"
