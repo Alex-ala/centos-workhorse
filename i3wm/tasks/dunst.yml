@@ -17,6 +17,8 @@
           - cairo-devel
           - pango-devel
           - gtk3-devel
+          - libnotify
+      state: present
 
     - name: Clone Dunst repo
       git:
@@ -36,7 +38,7 @@
         path: /tmp/dunst
         state: absent
 
-  when: not dunst.stat.exists
+  when: not dunst.stat.exists or update_dunst is defined
 
 - name: Create dunst dir
   file:

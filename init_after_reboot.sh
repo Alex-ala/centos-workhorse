@@ -1,8 +1,8 @@
 #!/bin/bash
 DIR=$1
+sed -i "/init_after_reboot.sh/d" /home/${SUDO_USER}/.bashrc
 sudo yum clean expire-cache
 sudo yum udpate -y
 echo ${DIR}
 cd ${DIR}
-cp dotfiles/.bashrc ~/.bashrc
-ansible-playbook -i inventory local_inventory.yml playbooks/FULL.yml --extra-vars "user=$(whoami)"
+ansible-playbook -i local_inventory.yml playbooks/FULL.yml --extra-vars "user=$(whoami)"
