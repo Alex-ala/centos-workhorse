@@ -1,5 +1,6 @@
 #!/bin/sh
 source ~/.zsh.d/aliases
 kill $(pidof dunst)
+pulseaudio --start
 dunst -conf ~/.config/dunst/dunstrc &
 copyq &
