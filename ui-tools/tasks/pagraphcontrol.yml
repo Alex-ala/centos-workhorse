@@ -9,13 +9,15 @@
 - block:
     - name: Install node repo
       become: true
-      shell: curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+      shell: curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 
     - name: Install node
       become: true
       yum:
         update_cache: true
-        name: nodejs
+        name:
+          - nodejs
+          - gcc-c++
         state: present
 
     - name: Install yarn
