@@ -20,7 +20,7 @@
 
   - name: Cleanup
     file:
-      paht: /tmp/fonts
+      path: /tmp/fonts
       state: absent
 
   when: "not fontpath.stat.exists"
