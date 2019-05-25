@@ -63,6 +63,7 @@
         state: link
 
     - name: Cleanup tmp
+      become: true
       file:
         path: /tmp/pagraphcontrol
         state: absent
