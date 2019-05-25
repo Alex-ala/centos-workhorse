@@ -4,3 +4,7 @@
     - yum-repos
     - build-tools
     - i3wm
+    - fonts
+    - xterm
+    - os-tools
+    - ui-tools

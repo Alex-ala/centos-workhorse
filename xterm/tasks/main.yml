@@ -6,5 +6,9 @@
     name: xterm
     state: present
 
+- name: Copy XResources
+  copy:
+    src: files/xresources
+    dest: "/home/{{ user }}/.Xresources
 
 #TODO implement (xresources)

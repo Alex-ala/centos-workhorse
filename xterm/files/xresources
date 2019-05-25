@@ -1,0 +1,60 @@
+! -----------------------------
+! XFT SETTINGS
+! -----------------------------
+
+Xft.antialias:  true
+Xft.autohint:   false
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.rgba:       rgb
+
+
+XTerm*faceName: SauceCodePro Nerd Font:style=Regular:size=11
+XTerm*renderFont: true
+XTerm*letterSpace: 1
+XTerm*borderless:         true
+XTerm*internalBorder:     15
+XTerm*jumpScroll:         true
+XTerm*scrollBar:          false
+XTerm*scrollTryOutput:    false
+XTerm*scrollTtyKeypress:  true
+XTerm*urgentOnBell:       true
+XTerm*visualBell:         false
+
+
+! special
+*.foreground:   #ffffff
+*.background:   #2e2e2e
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #2e2e2e
+*.color8:       #676767
+
+! red
+*.color1:       #e84a4a
+*.color9:       #976a6a
+
+! green
+*.color2:       #3aaa48
+*.color10:      #52a25c
+
+! yellow
+*.color3:       #885522
+*.color11:      #e1a44a
+
+! blue
+*.color4:       #3b7b9b
+*.color12:      #365864
+
+! magenta
+*.color5:       #ff00e5
+*.color13:      #ff47ec
+
+! cyan
+*.color6:       #5DC4F7
+*.color14:      #009EED
+
+! white
+*.color7:       #a4a4a4
+*.color15:      #ffffff

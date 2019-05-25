@@ -1,0 +1,5 @@
+#!/bin/sh
+source ~/.bash_profile
+kill $(pidof dunst)
+dunst -conf ~/.config/dunst/dunstrc &
+copyq &

@@ -1,9 +1,16 @@
 ---
 
+- name: Get current systemd target
+  shell: |
+     systemctl get-default
+  changed_when: false
+  register: target
+
 - name: Boot into graphical userinterface
   become: true
   shell: |
     systemctl set-default graphical.target
+  when: "target.stdout != graphical.target"
 
 - name: Start i3 on X-Server start
   copy:
