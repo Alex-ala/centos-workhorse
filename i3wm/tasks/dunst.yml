@@ -6,6 +6,18 @@
   register: dunst
 
 - block:
+    - name: Install dependencies
+      yum:
+        name:
+          - dbus-devel
+          - glib-devel
+          - libXinerama-devel
+          - libXrandr-devel
+          - libXScrnSaver-devel
+          - cairo-devel
+          - pango-devel
+          - gtk3-devel
+
     - name: Clone Dunst repo
       git:
         repo: https://github.com/dunst-project/dunst.git
@@ -26,7 +38,13 @@
 
   when: not dunst.stat.exists
 
+- name: Create dunst dir
+  file:
+    path: "/home/{{ user }}/.config/dunst"
+    state: directory
+
 - name: Copy Dunst config
   copy:
     src: files/dunstrc
     dest: "/home/{{ user }}/.config/dunst/dunstrc"
+
