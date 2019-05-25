@@ -1,0 +1,17 @@
+---
+
+- name: Install python36
+  become: true
+  package:
+    name: "{{ packages }}"
+    state: present
+
+- name: Is pip3 present?
+  stat:
+    path: /usr/local/bin/pip3
+  register: pip3
+
+- name: Install pip3
+  become: true
+  shell: python3.6 -m pip install py3status
+  when: not pip3.stat.exists

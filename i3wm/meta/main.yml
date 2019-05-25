@@ -1,0 +1,4 @@
+dependencies:
+  - python3
+  - x11
+  - x1-carbon-drivers

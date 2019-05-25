@@ -5,9 +5,12 @@
   package:
     name:
       - "i3"
-      - "mesa-dri-drivers"
-      - "xorg-x11-server-Xorg"
-      - "xorg-x11-xauth"
-      - "xorg-x11-xinit"
-      - "dbus-x11"
+      - "i3-lock"
+      - "xterm"
     state: present
+
+- name: Install py3status
+  become: true
+  pip:
+    executable: /usr/local/bin/pip3
+    name: py3status

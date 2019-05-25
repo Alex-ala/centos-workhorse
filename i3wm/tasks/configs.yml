@@ -7,5 +7,10 @@
 
 - name: Copy .i3 folder
   copy:
-    src: files/i3
+    src: files/i3/
     dest: /home/{{ user }}/.i3
+
+- name: Copy XResources
+  copy:
+    src: files/xresources
+    dest: "/home/{{ user }}/.Xresources"

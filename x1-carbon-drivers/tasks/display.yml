@@ -1,0 +1,9 @@
+---
+
+- name: install required display drivers
+  become: true
+  yum:
+    name:
+      - "mesa-dri-drivers"
+      - "xorg-x11-drv-intel"
+    state: present

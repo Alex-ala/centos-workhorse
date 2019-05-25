@@ -1,0 +1,11 @@
+---
+
+- name: install required display drivers
+  become: true
+  yum:
+    name:
+      - "xorg-x11-server-Xorg"
+      - "xorg-x11-xauth"
+      - "xorg-x11-xinit"
+      - "dbus-x11"
+    state: present

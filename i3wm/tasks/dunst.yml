@@ -1,0 +1,32 @@
+---
+
+- name: Check if dunst is installed
+  stat:
+    path: /usr/local/bin/dunst
+  register: dunst
+
+- block:
+    - name: Clone Dunst repo
+      git:
+        repo: https://github.com/dunst-project/dunst.git
+        depth: 1
+        dest: /tmp/dunst
+
+    - name: Install Dunst
+      become: true
+      shell: |
+          make && make install
+      args:
+        chdir: /tmp/dunst
+
+    - name: Cleanup
+      file:
+        path: /tmp/dunst
+        state: absent
+
+  when: not dunst.stat.exists
+
+- name: Copy Dunst config
+  copy:
+    src: files/dunstrc
+    dest: "/home/{{ user }}/.config/dunst/dunstrc

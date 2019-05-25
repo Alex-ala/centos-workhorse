@@ -130,13 +130,10 @@ bindsym $mod+Shift+r mode "resize"
 
 bar {
 	i3bar_command /usr/bin/i3bar
-#	i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
-#	status_command i3status -c ~/.i3/i3status.conf
-	status_command ~/.i3/conky-i3bar
-	font pango:SauceCodePro Nerd Font regular 10
+	status_command /usr/local/bin/py3status
+	font pango:FuraMono Nerd Font Mono:style=Medium,Regular
 	tray_output primary
 	position bottom
-	#font pango:Terminus 8
 	colors {
 		background #202020
 		separator #202020

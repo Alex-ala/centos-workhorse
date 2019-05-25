@@ -1,0 +1,5 @@
+---
+
+packages:
+  - python36
+  - python36-setuptools
