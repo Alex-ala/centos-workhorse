@@ -11,12 +11,6 @@ Variables:
 
 
 Things I want:
-- [ ] slack
-- [ ] rambox
-- [ ] vivaldi
-- [ ] thunderbird
-- [ ] thunderbird exchange
-- [ ] spotify
 - ui
     - [x] python3 bar               TODO: Config
     - [x] i3              
@@ -30,14 +24,26 @@ Things I want:
 - [x] tmux + new config             TODO: Config
 - system shizzle
     - [ ] bluetooth
+        - [ ] pulseaudio-blueooth
+        - [ ] bluez
+        - [ ] Scripts to connect/switch devices/modes
+        - [ ] Status script for bar
     - [ ] audio
+        - [ ] Pulseaudio
+        - [ ] Pulseaudio utils
     - [ ] video
     - [ ] fingerprint
-    - [ ] Mobile?
+    - [ ] Mobile
     - [ ] Backup
 - tools
     - [x] jq
     - [x] net-tools
+- [ ] slack
+- [ ] rambox
+- [ ] vivaldi
+- [ ] thunderbird
+- [ ] thunderbird exchange
+- [ ] spotify
 - [ ] Some mongodb ui. Compass is shitty
 - [ ] jetbrains
 - [ ] sublime text
