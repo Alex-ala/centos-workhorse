@@ -10,5 +10,3 @@
   copy:
     src: files/xresources
     dest: "/home/{{ user }}/.Xresources
-
-#TODO implement (xresources)
