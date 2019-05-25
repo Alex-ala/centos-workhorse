@@ -29,4 +29,4 @@
 - name: Copy Dunst config
   copy:
     src: files/dunstrc
-    dest: "/home/{{ user }}/.config/dunst/dunstrc
+    dest: "/home/{{ user }}/.config/dunst/dunstrc"
