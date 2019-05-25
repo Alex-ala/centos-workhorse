@@ -34,3 +34,13 @@
         state: absent
 
   when: zsh.rc != 0 or update_zsh is defined
+
+- name: Copy zshrc
+  copy:
+    src: files/zshrc
+    dest: "/home/{{ user }}/.zshrc"
+
+- name: Create directory for additional configs
+  file:
+    path: "/home/{{ user }}/.zsh.d"
+    state: directory

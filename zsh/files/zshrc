@@ -22,21 +22,20 @@ bindkey -e
 source ~/.zplug/init.zsh
 
 
-zplug "zsh-users/zsh-history-substring-search"
-zplug "chrissicool/zsh-256color"
-zplug "Cloudstek/zsh-plugin-appup"
-zplug "desyncr/auto-ls"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "Tarrasch/zsh-bd"
-zplug "arzzen/calc.plugin.zsh"
+zplug "arzzen/calc.plugin.zsh", use:calc.plugin.zsh
+zplug "chrissicool/zsh-256color", use:zsh-256color.plugin.zsh
+zplug "Cloudstek/zsh-plugin-appup", use:appup.plugin.zsh
+zplug "desyncr/auto-ls", use:auto-ls.zsh
+zplug "laggardkernel/thefuck", use:thefuck.plugin.zsh
+zplug "sindresorhus/pretty-time-zsh", use:pretty-time.plugin.zsh
+zplug "skx/sysadmin-util", use:sysadmin-util.plugin.zsh
+zplug "soimort/translate-shell", use:translate-shell.plugin.zsh
+zplug "sparsick/ansible-zsh", use:ansible.plugin.zsh
+zplug "Tarrasch/zsh-bd", use:bd.plugin.zsh
+zplug "valentinocossar/sublime", use:sublime.plugin.zsh
 zplug "webyneter/docker-aliases", use:docker-aliases.plugin.zsh
-zplug "valentinocossar/sublime"
-zplug "skx/sysadmin-util"
-zplug "laggardkernel/thefuck"
-zplug "sindresorhus/pretty-time-zsh"
-zplug "arzzen/calc.plugin.zsh"
-zplug "sparsick/ansible-zsh"
-zplug "soimort/translate-shell"
+zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.plugin.zsh
+zplug "zsh-users/zsh-history-substring-search", use:zsh-history-substring-search.plugin.zsh
 zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
 
 if ! zplug check --verbose; then
@@ -47,4 +46,4 @@ if ! zplug check --verbose; then
 fi
 
 fpath=(~/.zsh.d $fpath)
-source ~/.zsh.d/work.bashrc
+source ~/.zsh.d/*.zsh
