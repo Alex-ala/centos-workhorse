@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR=$1
-sed -i "/init_after_reboot.sh/d" /home/${SUDO_USER}/.bashrc
+sed -i "/init_after_reboot.sh/d" /home/$(whoami)/.bashrc
 sudo yum clean expire-cache
 sudo yum udpate -y
 echo ${DIR}
