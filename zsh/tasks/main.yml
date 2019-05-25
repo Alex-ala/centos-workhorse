@@ -21,7 +21,7 @@
     - name: Unpack zsh
       unarchive:
         src: /tmp/zsh.tar
-        dest: /tmp/zsh
+        dest: /tmp/
         list_files: true
       register: zsh_dir
 
@@ -30,13 +30,17 @@
       shell: |
         ./configure && make && make install
       args:
-        chdir: "/tmp/zsh/{{ zsh_dir.files | last | dirname }}"
+        chdir: "/tmp/{{ zsh_dir.files | last | regex_search('zsh[^/]*') }}"
 
     - name: Cleanup
       become: true
       file:
         path: /tmp/zsh
         state: absent
+ 
+    - name: Install zplug
+      shell: |
+        curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh 
 
   when: zsh.rc != 0 or update_zsh is defined
 
