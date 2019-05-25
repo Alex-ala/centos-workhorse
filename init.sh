@@ -14,6 +14,5 @@ yum update -y
 yum -y install ansible yum-utils
 package-cleanup --oldkernels --count=2
 echo "$SUDO_USER     ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${SUDO_USER}
-sed -i "s/Subsystem\tsftp\t\/usr\/libexec\/openssh\/sftp-server/Subsystem\tsftp\tinternal-sftp/" /etc/ssh/sshd_config
 echo "sh $DIR/init_after_reboot.sh $DIR" >> /home/${SUDO_USER}/.bashrc
 reboot

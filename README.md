@@ -44,6 +44,7 @@ Things I want:
 - tools
     - [x] jq
     - [x] net-tools
+    - [ ] pagraphcontrol
 - [ ] slack
 - [ ] rambox
 - [ ] vivaldi

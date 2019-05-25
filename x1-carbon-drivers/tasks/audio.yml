@@ -9,6 +9,7 @@
       - pulseaudio-utils
       - alsa-utils
       - alsa-tools
+      - pavucontrol
 
 - name: Configure Pulseaudio
   become: true
