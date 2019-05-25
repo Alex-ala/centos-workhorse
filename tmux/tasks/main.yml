@@ -7,6 +7,11 @@
   register: tmux
 
 - block:
+    - name: Create tmp dir
+      file:
+        path: /tmp/tmux
+        state: directory
+
     - name: Download tmux
       unarchive:
         remote_src: true
@@ -21,6 +26,7 @@
         chdir: /tmp/tmux
 
     - name: Cleanup
+      become: true
       file:
         path: /tmp/tmux
         state: absent
