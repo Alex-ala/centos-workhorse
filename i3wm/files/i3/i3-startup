@@ -1,5 +1,5 @@
 #!/bin/sh
-source ~/.bash_profile
+source ~/.zsh.d/aliases
 kill $(pidof dunst)
 dunst -conf ~/.config/dunst/dunstrc &
 copyq &

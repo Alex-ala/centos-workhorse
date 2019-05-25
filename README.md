@@ -16,16 +16,16 @@ Things I want:
 - [ ] thunderbird exchange
 - [ ] spotify
 - ui
-    - [ ] python3 bar               TODO: Config
+    - [x] python3 bar               TODO: Config
     - [x] i3              
     - [x] dunst
     - [x] i3lock
     - [x] dmenu
-- [ ] feh
-- [ ] copyq
-- [ ] pacmanfm-qt
+- [x] feh                           Built without curl, but who needs to open pictures via http
+- [x] copyq                         TODO: Config
+- [x] pcmanfm-qt
 - [ ] zsh + plugins
-- [ ] tmux + new config
+- [x] tmux + new config             TODO: Config
 - system shizzle
     - [ ] bluetooth
     - [ ] audio
@@ -34,8 +34,8 @@ Things I want:
     - [ ] Mobile?
     - [ ] Backup
 - tools
-    - [ ] jq
-    - [ ] net-tools
+    - [x] jq
+    - [x] net-tools
 - [ ] Some mongodb ui. Compass is shitty
 - [ ] jetbrains
 - [ ] sublime text

@@ -1,0 +1,35 @@
+---
+
+- name: Check if feh is installed
+  shell: which feh
+  changed_when: false
+  ignore_errors: yes
+  register: feh
+
+- block:
+    - name: Install dependencies
+      yum:
+        name:
+          - imlib2
+          - imlib2-devel
+          - libXt-devel
+
+    - name: Download feh
+      git:
+        repo: https://github.com/derf/feh
+        dest: /tmp/feh
+
+    - name: Install feh
+      become: true
+      shell: |
+        export curl=0 && make && make install app=1
+      args:
+        chdir: "/tmp/feh"
+
+    - name: Cleanup
+      become: true
+      file:
+        path: /tmp/feh
+        state: absent
+
+  when: feh.rc != 0 or update_feh is defined
