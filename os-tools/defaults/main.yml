@@ -6,4 +6,5 @@ packages:
   - bind-utils
   - net-tools
   - psutils
+  - psmisc
   - jq

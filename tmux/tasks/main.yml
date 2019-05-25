@@ -1,10 +1,27 @@
 ---
 
-- name: Install tmux
-  become: true
-  package:
-    name: tmux
-    state: present
+- name: Check if tmux is installed
+  shell: which tmux
+  changed_when: false
+  register: tmux
 
+- block:
+    - name: Download tmux
+      unarchive:
+        remote_src: true
+        src: "{{ tmux_url }}"
+        dest: /tmp/tmux
 
-#TODO implement
+    - name: Install tmux
+        become: true
+        shell: |
+          ./configure && make && make install
+        args:
+          chdir: /tmp/tmux
+
+        - name: Cleanup
+          file:
+            path: /tmp/tmux
+            state: absent
+
+  when: tmux.rc != 0 or update_tmux is defined
