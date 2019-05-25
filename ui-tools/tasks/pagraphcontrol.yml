@@ -39,7 +39,7 @@
     - name: Clone pagraphcontrol repo
       git:
         repo: https://github.com/futpib/pagraphcontrol.git
-        dest: /tmp/
+        dest: /tmp/pagraphcontrol
         depth: 1
 
     - name: Build yarn thingy
