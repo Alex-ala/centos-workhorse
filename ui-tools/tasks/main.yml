@@ -1,7 +1,4 @@
 ---
 
-- name: Install ui tools
-  become: true
-  package:
-    name: "{{ packages }}"
-    state: present
+- include_tasks: yum_packages.yml
+- include_tasks: pagraphcontrol.yml
