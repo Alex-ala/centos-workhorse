@@ -11,5 +11,5 @@
 - name: Configure Bluetooth
   become: true
   copy:
-    src: bluetooth.conf
+    src: bluetooth/main.conf
     dest: /etc/bluetooth/main.conf

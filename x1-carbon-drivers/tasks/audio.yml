@@ -1,0 +1,19 @@
+---
+
+- name: Install dependencies and helpers
+  become: true
+  yum:
+    state: present
+    name:
+      - pulseaudio
+      - pulseaudio-utils
+      - alsa-utils
+      - alsa-tools
+
+- name: Configure Pulseaudio
+  become: true
+  copy:
+    src: "audio/{{ item }}"
+    dest: "/etc/pulse/{{ item }}"
+  with_items:
+    - default.pa

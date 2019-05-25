@@ -24,15 +24,21 @@ Things I want:
 - [x] tmux + new config             TODO: Config
 - system shizzle
     - [ ] bluetooth
-        - [ ] pulseaudio-blueooth
-        - [ ] bluez
-        - [ ] Scripts to connect/switch devices/modes
+        - [x] pulseaudio-blueooth
+        - [x] bluez
+        - [ ] Script to pair/connect/trust devices
         - [ ] Status script for bar
     - [ ] audio
-        - [ ] Pulseaudio
-        - [ ] Pulseaudio utils
-    - [ ] video
+        - [x] Pulseaudio
+        - [x] Pulseaudio utils
+        - [ ] Script to switch audio devices/modes
+        - [ ] Status script for bar
+    - [x] video
     - [ ] fingerprint
+        - drivers
+        - login
+    - [ ] Touchpad
+        - CLICK ON TAP!!!!
     - [ ] Mobile
     - [ ] Backup
 - tools
