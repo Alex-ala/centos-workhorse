@@ -1,0 +1,27 @@
+---
+
+- name: Check if Slack is installed
+  shell: which slack
+  changed_when: false
+  ignore_errors: yes
+  register: slack
+
+- block:
+    - name: Download Slack
+      become: true
+      get_url:
+        url: "{{ slack_url }}"
+        dest: /srv/yum-repo/
+
+    - name: Update repo
+      become: true
+      shell: createrepo /srv/yum-repo
+
+    - name: Install Slack
+      become: true
+      yum:
+        name: slack
+        update_cache: true
+        state: present
+
+  when: slack.rc != 0 or update_slack is defined

@@ -1,0 +1,31 @@
+---
+
+- name: Check Toolbox istallation
+  stat:
+    path: /usr/local/bin/jetbrains-toolbox
+  register: toolbox
+
+- block:
+  - name: Download Toolbox
+    unarchive:
+      remote_src: true
+      src: "{{ jetbrains_toolbox_url }}"
+      dest: /tmp/
+      list_files: true
+    register: jetbrains_dir
+
+  - name: Copy toolbox to a PATH dir
+    become: true
+    copy:
+      remote_src: true
+      src: "/tmp/{{ jetbrains_dir.files | last | regex_search('jetbrains[^/]*') }}/jetbrains-toolbox"
+      dest: /usr/local/bin/jetbrains-toolbox
+      owner: root
+      mode: 0755
+
+  - name: Cleaup
+    file:
+      path: /tmp/jetbrains
+      state: absent
+
+  when: not toolbox.stat.exists or update_jetbrains is defined

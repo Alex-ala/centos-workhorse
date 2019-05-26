@@ -1,0 +1,159 @@
+#!/usr/bin/env python36
+
+import json
+import os
+import sys
+import time
+import datetime
+import calendar
+import requests
+from requests.auth import HTTPBasicAuth
+
+
+CONFIG = os.getenv("HOME")+"/.rest_apis/.apis"
+APINAME = "Spotify"
+
+conf = dict()
+
+
+def get_conf(path):
+    global conf
+    with open(path) as cf:
+        conf = json.load(cf)[APINAME]
+
+
+def save_conf(path):
+    global conf
+    tmp = ""
+    with open(path) as cf:
+        tmp = json.load(cf)
+    with open(path, 'w') as outf:
+        tmp[APINAME] = conf
+        json.dump(tmp, outf)
+
+
+def request_new_token():
+    global conf
+    url = conf['token_uri']
+    clientid = conf['client_id']
+    clientsecret = conf['client_secret']
+    refreshtoken = conf['token']['refresh_token']
+    data = dict(grant_type='refresh_token', refresh_token=refreshtoken)
+    rep = requests.post(url,data=data,auth=HTTPBasicAuth(clientid, clientsecret)).json()
+    conf['token']['access_token'] = rep['access_token']
+    conf['token']['expires_at'] = time.time()+rep['expires_in']
+    if 'refresh_token' in rep:
+        conf['token']['refresh_token'] = rep['refresh_token']
+
+
+def get_song():
+    url = 'https://api.spotify.com/v1/me/player/currently-playing'
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token']}
+    rep = requests.get(url, headers=headers).json()
+    if 'item' in rep:
+        return rep['item']
+    return None
+
+def get_currently_playing():
+    track = get_song()
+    print(track['name'].replace("\"","") +" - "+ track['artists'][0]['name'].replace("\"",""))
+
+def get_monthly_playlist():
+    month = calendar.month_abbr[datetime.datetime.now().month]
+    year = datetime.datetime.now().year
+    name = str(year) + " " + month
+    url = 'https://api.spotify.com/v1/me/playlists'
+    headers = {'Authorization': 'Bearer ' + conf['token']['access_token']}
+    offset = 0
+    while True:
+        rep = requests.get(url + '?offset=' + str(offset) + '&limit=50', headers=headers).json()['items']
+        if not rep:
+            return None
+        for list in rep:
+            if list['name'] == name:
+                return list['id']
+        offset += 50
+
+
+def add_song(uid, sid, pid):
+    url = 'https://api.spotify.com/v1/users/' + uid + '/playlists/' + pid + '/tracks?uris=' + sid
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token']}
+    rep = requests.post(url, headers=headers).json()
+
+
+def create_playlist(uid):
+    url = 'https://api.spotify.com/v1/users/' + uid + '/playlists'
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token'], 'Content-Type': 'application/json'}
+    month = calendar.month_abbr[datetime.datetime.now().month]
+    year = datetime.datetime.now().year
+    name = str(year) + ' ' + month
+    data = '{ "name": "' + name + '"}'
+    rep = requests.post(url,data=data, headers=headers).json()
+
+def add_to_monthly():
+    track = get_song()['uri']
+    if track is None:
+        exit(1)
+    playlist = get_monthly_playlist()
+    if playlist is None:
+        create_playlist('ofenstichloch')
+        playlist = get_monthly_playlist()
+    add_song('ofenstichloch', track, playlist)
+
+
+def toggle_pause():
+    url = 'https://api.spotify.com/v1/me/player/pause'
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token']}
+    rep = requests.put(url, headers=headers)
+    if rep.status_code == 204:
+        return
+    url = 'https://api.spotify.com/v1/me/player/play'
+    rep = requests.put(url, headers=headers)
+
+
+def next():
+    url = 'https://api.spotify.com/v1/me/player/next'
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token']}
+    rep = requests.post(url, headers=headers)
+
+def previous():
+    url = 'https://api.spotify.com/v1/me/player/previous'
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token']}
+    rep = requests.post(url, headers=headers)
+
+
+def shuffle():
+    url = 'https://api.spotify.com/v1/me/player/shuffle'
+    headers = { 'Authorization': 'Bearer ' + conf['token']['access_token']}
+    rep = requests.put(url, headers=headers)
+
+
+get_conf(CONFIG)
+if 'expires_at' not in conf['token'] or conf['token']['expires_at'] <= time.time():
+    request_new_token()
+    save_conf(CONFIG)
+
+if len(sys.argv) < 2:
+    print("At least one arg required")
+    exit(1)
+
+action = sys.argv[1]
+if action == "pause" or action == "play":
+    toggle_pause()
+
+if action == "add-monthly":
+    add_to_monthly()
+
+if action == "current":
+    get_currently_playing()
+
+if action == 'skip' or action == 'next':
+    next()
+
+if action == 'previous' or action == 'back':
+    previous()
+
+if action == 'shuffle':
+    shuffle()
+
+

@@ -1,0 +1,7 @@
+---
+
+- include_tasks: packages.yml
+- include_tasks: jetbrains.yml
+- include_tasks: rambox.yml
+- include_tasks: slack.yml
+- include_tasks: calendar.yml

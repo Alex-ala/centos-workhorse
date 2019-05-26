@@ -1,0 +1,27 @@
+---
+
+- name: Check if Rambox is installed
+  shell: which rambox
+  changed_when: false
+  ignore_errors: yes
+  register: rambox
+
+- block:
+    - name: Download Rambox
+      become: true
+      get_url:
+        url: "{{ rambox_url }}"
+        dest: /srv/yum-repo/
+
+    - name: Update repo
+      become: true
+      shell: createrepo /srv/yum-repo
+
+    - name: Install Rambox
+      become: true
+      yum:
+        name: Rambox
+        update_cache: true
+        state: present
+
+  when: rambox.rc != 0 or update_rambox is defined

@@ -1,7 +1,6 @@
 ---
 
 - include_tasks: copy_repo_files.yml
-- include_tasks: slack.yml
 - include_tasks: ulyaoth.yml
 - include_tasks: epel.yml
 - include_tasks: sublime.yml

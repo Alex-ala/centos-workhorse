@@ -1,0 +1,23 @@
+---
+
+- name: Install available RPMs
+  become: true
+  yum:
+    state: present
+    name:
+      - vivaldi
+      - spotify
+      - sublime-text
+      - docker-ce
+      - openvpn
+      - thunderbird
+      - gnome-screenshot
+      - kpcli
+
+- name: Add user to Docker group
+  become: true
+  user:
+    name: "{{ user }}"
+    append: true
+    groups:
+      - docker

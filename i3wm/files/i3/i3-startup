@@ -8,3 +8,4 @@ fi
 pulseaudio --start
 dunst -conf ~/.config/dunst/dunstrc &
 copyq &
+jetbrains-toolbox &

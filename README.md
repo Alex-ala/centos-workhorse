@@ -9,6 +9,11 @@ Variables:
  - update_feh: updates feh from source if set. Please specify release URL in feh/defaults
  - update_zsh: updates zsh from source if set. Please specify release URL in zsh/defaults
  - update_pagraphcontrol: updates pagraphcontrol from source if set.
+ - update_jetbrains: updates jetbrains toolbox from URL set in applications/defauls if set.
+
+Manual Todo:
+ - Install Thunderbird plugin ExQuilla https://addons.thunderbird.net/de/thunderbird/addon/exquilla-exchange-web-services/?src=search
+
 
 Things I want:
 - ui
@@ -42,27 +47,33 @@ Things I want:
     - [x] fingerprint (Not gonna happen, see x1-carbon-drivers README)
         - drivers
         - login
-    - [ ] Touchpad
-        - CLICK ON TAP!!!!
-    - [x ] Mobile (Not gonna happen, see x1-carbon-drivers README)
-    - [ ] Backup
+    - [x] Touchpad + Trackpoint
+    - [x] Mobile (Not gonna happen, see x1-carbon-drivers README)
+    - [ ] Backup (Cronopete or similar)
 - tools
     - [x] jq
     - [x] net-tools
     - [x] pagraphcontrol
-    - [ ] cronopete or similar
-- [ ] slack
-- [ ] rambox
-- [ ] vivaldi
-- [ ] thunderbird
-- [ ] thunderbird exchange
-- [ ] spotify
+    - [x] kpcli
+- [x] slack
+- [x] rambox
+- [x] vivaldi
+- [x] thunderbird
+- [x] spotify
 - [ ] Some mongodb ui. Compass is shitty
-- [ ] jetbrains
-- [ ] sublime text
-- [ ] scrot or similar
-- [ ] shellcheck
-- [ ] docker
-- [ ] openvpn
-- [ ] vdirsyncer+khal
--
+- [x] jetbrains
+- [x] sublime text
+- [x] gnome-screenshot
+- [x] docker
+- [x] openvpn
+- [x] vdirsyncer+khal
+- [ ] diverse liniting tools (shell ansible python yml) TODO: Welche genau?
+
+
+TODO:
+RESTManager in pip package verwandeln
+Private Config files backup:
+    - Rambox
+    - vdirsyncer
+    - rambox
+    - openvpn

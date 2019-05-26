@@ -1,0 +1,10 @@
+---
+
+- name: Install vdirsyncer and khal
+  become: true
+  pip:
+    executable: /usr/local/bin/pip3
+    name: 
+      - vdirsyncer
+      - khal
+    state: present
