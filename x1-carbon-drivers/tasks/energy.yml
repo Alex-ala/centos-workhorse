@@ -1,0 +1,7 @@
+---
+
+- name: Enable suspend-hooks
+  become: true
+  copy: 
+    src: files/logind.conf
+    dest: /etc/systemd/logind.conf
