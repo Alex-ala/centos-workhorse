@@ -33,7 +33,9 @@ Things I want:
         - [x] Pulseaudio utils
         - [ ] Script to switch audio devices/modes
         - [ ] Status script for bar
-    - [x] video
+    - [ ] video
+	- Display brightness
+	- Multimonitor
     - [ ] fingerprint
         - drivers
         - login
