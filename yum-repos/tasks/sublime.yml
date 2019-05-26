@@ -1,0 +1,14 @@
+---
+
+- name: Install Sublime3 key
+  become: true
+  rpm_key:
+    state: present
+    key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+
+- name: Install Sublime3 repo
+  become: true 
+  get_url:
+    url: https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+    dest: /etc/yum.repos.d/sublime-text.repo
+

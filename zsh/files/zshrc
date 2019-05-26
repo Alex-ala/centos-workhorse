@@ -45,5 +45,6 @@ if ! zplug check --verbose; then
     fi
 fi
 zplug load
-fpath=(~/.zsh.d $fpath)
-source ~/.zsh.d/*.zsh || true
+for file in ~/.zsh.d/*.zsh; do
+	source $file
+done

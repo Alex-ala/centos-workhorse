@@ -8,7 +8,7 @@ Variables:
  - update_tmux: updates tmux from source if set. Please specify release URL in tmux/defaults
  - update_feh: updates feh from source if set. Please specify release URL in feh/defaults
  - update_zsh: updates zsh from source if set. Please specify release URL in zsh/defaults
-
+ - update_pagraphcontrol: updates pagraphcontrol from source if set.
 
 Things I want:
 - ui
@@ -21,27 +21,30 @@ Things I want:
 - [x] copyq                         
 - [x] pcmanfm-qt
 - [x] zsh + plugins                 
-- [x] tmux + new config             TODO: Config
+- [x] tmux + new config             
 - system shizzle
     - [ ] bluetooth
         - [x] pulseaudio-blueooth
         - [x] bluez
-        - [ ] Script to pair/connect/trust devices
+        - [x] Script to pair/connect/trust devices (use bluetoothctl or bar)
         - [ ] Status script for bar
     - [ ] audio
         - [x] Pulseaudio
         - [x] Pulseaudio utils
-        - [ ] Script to switch audio devices/modes
+        - [x] Script to switch audio devices/modes (Use pagraphcontrol)
         - [ ] Status script for bar
     - [ ] video
-	- Display brightness
-	- Multimonitor
-    - [ ] fingerprint
+	   - [x] Display brightness
+	   - Multimonitor scripts
+        - Auto set DPI
+        - Auto reload i3 
+        - Auto enable monitors when connected
+    - [x] fingerprint (Not gonna happen, see x1-carbon-drivers README)
         - drivers
         - login
     - [ ] Touchpad
         - CLICK ON TAP!!!!
-    - [ ] Mobile
+    - [x ] Mobile (Not gonna happen, see x1-carbon-drivers README)
     - [ ] Backup
 - tools
     - [x] jq

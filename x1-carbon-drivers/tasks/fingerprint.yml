@@ -1,0 +1,21 @@
+---
+
+- name: Install dependencies for fingerprint
+  become: true
+  yum: 
+    name:
+      - fprintd-pam
+      - fprintd
+    state: present
+
+- name: Insert new pam rule
+  become: true
+  pamd:
+    name: system-auth
+    type: auth
+    control: sufficient
+    module_path: pam_unix.so
+    new_type: auth
+    new_control: sufficient
+    new_module_path: pam_fprint.so
+    state: before

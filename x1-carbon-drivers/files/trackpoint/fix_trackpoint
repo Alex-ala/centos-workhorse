@@ -1,0 +1,3 @@
+#!/bin/bash
+echo -n "none" > /sys/bus/serio/devices/serio1/drvctl
+echo -n "reconnect" > /sys/bus/serio/devices/serio1/drvctl 

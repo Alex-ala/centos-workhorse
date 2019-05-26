@@ -1,0 +1,22 @@
+---
+
+- name: Copy trackpoint script
+  become: true
+  copy: 
+    src: files/trackpoint/fix_trackpoint
+    dest: /usr/local/bin/fix_trackpoint
+    owner: root
+    mode: 0755
+
+- name: Copy trackpoint service
+  become: true
+  copy:
+    src: files/trackpoint/fix_trackpoint.service
+    dest: /etc/systemd/system/fix_trackpoint.service
+
+- name: Enable service
+  become: true
+  systemd:
+    name: fix_trackpoint
+    enabled: true
+    daemon-reload: true

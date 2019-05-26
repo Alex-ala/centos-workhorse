@@ -3,3 +3,5 @@
 - include_tasks: display.yml
 - include_tasks: audio.yml
 - include_tasks: bluetooth.yml
+- include_tasks: fingerprint.yml
+- include_tasks: trackpoint.yml

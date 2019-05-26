@@ -40,3 +40,9 @@
         state: absent
 
   when: tmux.rc != 0 or update_tmux is defined
+
+- name: Copy tmux config
+  copy:
+    src: files/tmux.conf
+    dest: "/home/{{ user }}/.tmux.conf"
+

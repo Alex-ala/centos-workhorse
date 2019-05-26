@@ -10,6 +10,27 @@
     src: files/i3/
     dest: /home/{{ user }}/.i3
 
+- name: Copy i3 lock script
+  become: true
+  copy:
+    src: files/i3lock_run
+    dest: /usr/local/bin/i3lock_run
+    mode: 0755
+    owner: root
+
+- name: Copy i3lock systemd unit
+  become: true
+  copy:
+    src: "files/i3lock@.service"
+    dest: /etc/systemd/system
+
+- name: Enable and start unit
+  become: true
+  systemd:
+    daemon_reload: true
+    enabled: true
+    name: "i3lock@alex"
+
 - name: Copy XResources
   copy:
     src: files/xresources
