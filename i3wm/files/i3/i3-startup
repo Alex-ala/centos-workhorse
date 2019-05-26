@@ -1,6 +1,10 @@
 #!/bin/sh
-source ~/.zsh.d/aliases
-kill $(pidof dunst)
+if [[ -f ~/.zsh.d/aliases ]]; then
+	source ~/.zsh.d/aliases	
+fi
+if [[ ! -z $(pgrep dunst) ]]; then
+	kill $(pgrep dunst)
+fi
 pulseaudio --start
 dunst -conf ~/.config/dunst/dunstrc &
 copyq &

@@ -25,3 +25,13 @@
         update_cache: true
 
   when: copyq.rc != 0 or update_copyq is defined
+
+- name: Create config dir
+  file:
+    path: "/home/{{ user }}/.config/copyq"
+    state: directory
+
+- name: Copy config
+  copy:
+    src: files/copyq.conf
+    dest: "/home/{{ user }}/.config/copyq/copyq.conf"
