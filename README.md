@@ -18,9 +18,9 @@ Things I want:
     - [x] i3lock
     - [x] dmenu
 - [x] feh                           Built without curl, but who needs to open pictures via http
-- [x] copyq                         TODO: Config
+- [x] copyq                         
 - [x] pcmanfm-qt
-- [x] zsh + plugins                 TODO: Powerline config + Aliases
+- [x] zsh + plugins                 
 - [x] tmux + new config             TODO: Config
 - system shizzle
     - [ ] bluetooth
@@ -46,7 +46,7 @@ Things I want:
 - tools
     - [x] jq
     - [x] net-tools
-    - [ ] pagraphcontrol
+    - [x] pagraphcontrol
     - [ ] cronopete or similar
 - [ ] slack
 - [ ] rambox
@@ -61,4 +61,5 @@ Things I want:
 - [ ] shellcheck
 - [ ] docker
 - [ ] openvpn
+- [ ] vdirsyncer+khal
 -

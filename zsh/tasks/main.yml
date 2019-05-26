@@ -54,6 +54,12 @@
     path: "/home/{{ user }}/.zsh.d"
     state: directory
 
+- name: Copy additional configs
+  copy:
+    src: "{{ item }}"
+    dest: "/home/{{ user }}/.zsh.d/"
+  with_fileglob: "files/zsh.d/*"
+
 - name: Make zsh the default shell
   become: true
   user:
