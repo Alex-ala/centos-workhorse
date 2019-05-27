@@ -6,4 +6,5 @@
     name:
       - "mesa-dri-drivers"
       - "xorg-x11-drv-intel"
+      - "arandr"
     state: present

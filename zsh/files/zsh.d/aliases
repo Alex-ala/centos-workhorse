@@ -6,11 +6,12 @@ alias services="systemctl | grep -i running | sed 's/\.service\|\.socket//g'"
 alias calendar="vdirsyncer sync && khal interactive"
 alias snooze='notify-send "DUNST_COMMAND_PAUSE"'
 alias unsnooze='notify-send "DUNST_COMMAND_RESUME"'
-alias files="pcmanfm-qt"
-alias audio="pagraphcontrol"
+alias files="nohup pcmanfm-qt & >/dev/null 2>&1"
+alias audio="nohup pagraphcontrol & >/dev/null 2>&1"
 alias scrot="gnome-screenshot -af ~/screenshots/$(date +%F_%H-%M-%S).jpg"
 alias kp="sudo kpcli --kdb /mnt/shit/Database.kdb"
 alias ll='ls -la'
+alias robo3t='docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v "$HOME/data/robo3t/3T:/root/.3T" -v "$HOME/data/robo3t/config:/root/.config/3T" njordr/robo3t'
 
 # DOCKER
 alias dps='docker ps -a'

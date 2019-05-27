@@ -22,6 +22,7 @@ Things I want:
     - [x] dunst
     - [x] i3lock
     - [x] dmenu
+    - [ ] Conky                     TODO: Config
 - [x] feh                           Built without curl, but who needs to open pictures via http
 - [x] copyq                         
 - [x] pcmanfm-qt
@@ -60,7 +61,8 @@ Things I want:
 - [x] vivaldi
 - [x] thunderbird
 - [x] spotify
-- [ ] Some mongodb ui. Compass is shitty
+- [x] Some mongodb ui. Compass is shitty 
+	`docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v "$HOME/data/robo3t/3T:/root/.3T" -v "$HOME/data/robo3t/config:/root/.config/3T" njordr/robo3t`
 - [x] jetbrains
 - [x] sublime text
 - [x] gnome-screenshot
@@ -78,3 +80,22 @@ Private Config files backup:
     - vdirsyncer
     - rambox
     - openvpn
+
+
+i3 Monitor modes:
+- Scaling enabled: 
+    - xrandr --output eDP-1 --scale 0.75x0.75 --dpi 75
+    - xrdb update Xft
+- Scaling disabled: 
+    - xrandr --output eDP-1 --scale 1x1 --dpi 125
+    - xrdb update Xft
+- 3 Monitors: 
+    - Enable scaling
+    - xrdb update Xft
+    - Load 3 monitor setup from arandr
+- 2 Monitors: 
+    - Disable scaling
+    - xrdb update Xft
+    - Load 2 monitor setup from arandr
+- Internal only:
+    - Load 2 Monitor setup from arandr

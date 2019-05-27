@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p ~/screenshots
+gnome-screenshot -af ~/screenshots/$(date +%F_%H-%M-%S).jpg
