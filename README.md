@@ -72,6 +72,7 @@ Things I want:
 
 TODO:
 RESTManager in pip package verwandeln
+Alias for keyboard layout switch
 Private Config files backup:
     - Rambox
     - vdirsyncer

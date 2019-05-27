@@ -1,20 +1,21 @@
 # GENERAL USEFULNESS
-alias pj="python -m json.tool"
+alias pj='python -m json.tool'
 alias pw="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
-alias gl='git log --graph --full-history --all --color --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'''
-alias services="systemctl | grep -i running | sed 's/\.service\|\.socket//g'"alias calendar="vdirsyncer sync && khal interactive"
+alias gl="'git log --graph --full-history --all --color --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'''"
+alias services="systemctl | grep -i running | sed 's/\.service\|\.socket//g'"
+alias calendar="vdirsyncer sync && khal interactive"
 alias snooze='notify-send "DUNST_COMMAND_PAUSE"'
 alias unsnooze='notify-send "DUNST_COMMAND_RESUME"'
 alias files="pcmanfm-qt"
 alias audio="pagraphcontrol"
 alias scrot="gnome-screenshot -af ~/screenshots/$(date +%F_%H-%M-%S).jpg"
 alias kp="sudo kpcli --kdb /mnt/shit/Database.kdb"
-
+alias ll='ls -la'
 
 # DOCKER
-alias dps="docker ps -a"
-alias dka="for i in `docker ps -aq`; do docker kill $i; docker rm $i; done"
-alias di="docker images"
+alias dps='docker ps -a'
+alias dka='for i in `docker ps -aq`; do docker kill $i; docker rm $i; done' 
+alias di='docker images'
 
 # GIT
 gb() {
@@ -23,7 +24,7 @@ gb() {
 	git checkout $1
 }
 
-alias gc="git checkout"
+alias gc='git checkout'
 
 # TMUX
 ssh() {
@@ -49,5 +50,5 @@ brightness() {
     MAX=$(cat $SYSPATH/max_brightness)
     LEVELF=$(( $MAX / 100.0 * $1))
     LEVEL=${LEVELF%.*}
-    echo $LEVEL > $SYSPATH/brightness
+    echo $LEVEL | sudo tee $SYSPATH/brightness
 }
