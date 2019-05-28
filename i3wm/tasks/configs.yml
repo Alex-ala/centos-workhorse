@@ -1,5 +1,10 @@
 ---
 
+- name: Create i3 config dir
+  file:
+    path: "/home/{{ user }}/.config/i3"
+    state: directory
+
 - name: Copy i3 config
   copy:
     src: files/i3_config
