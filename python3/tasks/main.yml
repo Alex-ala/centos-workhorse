@@ -13,5 +13,5 @@
 
 - name: Install pip3
   become: true
-  shell: python3.6 -m pip install py3status
+  shell: python3.6 -m ensurepip
   when: not pip3.stat.exists

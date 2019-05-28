@@ -4,3 +4,4 @@
 - include_tasks: ulyaoth.yml
 - include_tasks: epel.yml
 - include_tasks: sublime.yml
+- include_tasks: nux.yml

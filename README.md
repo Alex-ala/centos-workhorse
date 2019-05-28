@@ -22,7 +22,7 @@ Things I want:
     - [x] dunst
     - [x] i3lock
     - [x] dmenu
-    - [ ] Conky                     TODO: Config
+    - [ ] Conky                     TODO: Config stats on background
 - [x] feh                           Built without curl, but who needs to open pictures via http
 - [x] copyq                         
 - [x] pcmanfm-qt
@@ -39,9 +39,9 @@ Things I want:
         - [x] Pulseaudio utils
         - [x] Script to switch audio devices/modes (Use pagraphcontrol)
         - [ ] Status script for bar
-    - [ ] video
-	   - [x] Display brightness
-	   - Multimonitor scripts
+    - [x] video
+	    - [x] Display brightness
+	    - Multimonitor scripts
         - Auto set DPI
         - Auto reload i3 
         - Auto enable monitors when connected
