@@ -128,6 +128,17 @@ mode "resize" {
 }
 bindsym $mod+Shift+r mode "resize"
 
+mode "Monitors: (i)nternal, (n)ative internal, (3) Screens, (2) Screens" {
+        bindsym i exec /usr/local/bin/monitorconfig_internal_only_scaled.sh
+        bindsym n exec /usr/local/bin/monitorconfig_internal_only.sh
+        bindsym 3 exec /usr/local/bin/monitorconfig_work3.sh
+        bindsym 2 exec /usr/local/bin/monitorconfig_work2.sh
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+m mode "Monitors: (i)nternal, (n)ative internal, (3) Screens, (2) Screens"
+
 bar {
 	i3bar_command /usr/bin/i3bar
 	status_command /usr/local/bin/py3status

@@ -4,3 +4,4 @@
 - include_tasks: dunst.yml
 - include_tasks: configs.yml
 - include_tasks: startup.yml
+- include_tasks: monitor.yml

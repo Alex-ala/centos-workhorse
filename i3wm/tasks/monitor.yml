@@ -1,0 +1,9 @@
+---
+
+- name: Copy monitorconfig scripts
+  become: true
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/bin/"
+    mode: 0755
+  with_fileglob: "files/monitor_scripts/*"
