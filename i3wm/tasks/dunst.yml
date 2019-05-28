@@ -7,6 +7,7 @@
 
 - block:
     - name: Install dependencies
+      become: true
       yum:
         name:
           - dbus-devel
@@ -34,6 +35,7 @@
         chdir: /tmp/dunst
 
     - name: Cleanup
+      become: true
       file:
         path: /tmp/dunst
         state: absent

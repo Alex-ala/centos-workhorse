@@ -1,6 +1,7 @@
 ---
 
 - name: Get current systemd target
+  become: true
   shell: |
      systemctl get-default
   changed_when: false
