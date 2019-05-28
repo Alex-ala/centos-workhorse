@@ -8,6 +8,7 @@
 
 - block:
     - name: Install dependencies
+      become: true
       yum:
         name:
           - libevent-devel
