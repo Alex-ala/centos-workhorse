@@ -8,7 +8,7 @@ xrandr \
 	--dpi 72 \
 	--output DP-2-1 --mode 2560x1440 --pos 0x0 --rotate normal \
 	--output DP-2-2 --off \
-	--output DP-2-3 --mode 2560x1440 --pos 2560x0 --rotate normal \
+	--output DP-2-3 --mode 2560x1440 --pos 2560x0 --rotate normal --primary \
 	--output eDP-1 --mode 5120x1440 --pos 2560x403 --rotate normal --scale 0.64x0.64\
 	--output HDMI-2 --off \
 	--output HDMI-1 --off \

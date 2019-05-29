@@ -97,7 +97,7 @@ bindsym $mod+KP_Subtract move workspace to output left
 bindsym $mod+Shift+Prior move workspace to output left
 bindsym $mod+Shift+Next move workspace to output left
 
-bindsym $mod+Shift+i exec i3-innut -F "move container to workspace \"%s\"" -P 'Move to workspace: '
+bindsym $mod+Shift+i exec i3-input -F "move container to workspace \"%s\"" -P 'Move to workspace: '
 
 # Special modes
 mode "(r)eboot (p)oweroff (e)xit-i3" {
@@ -108,7 +108,7 @@ mode "(r)eboot (p)oweroff (e)xit-i3" {
         bindsym Escape mode "default"
 }
 bindsym $mod+Shift+e mode "(r)eboot (p)oweroff (e)xit-i3"
-bindsym $mod+Mod1+l exec i3lock_run
+bindsym $mod+Shift+l exec i3lock_run
 
 mode "resize" {
         bindsym j resize shrink width 5 px or 5 ppt
@@ -138,6 +138,16 @@ mode "Monitors: (i)nternal, (n)ative internal, (3) Screens, (2) Screens" {
         bindsym Escape mode "default"
 }
 bindsym $mod+Shift+m mode "Monitors: (i)nternal, (n)ative internal, (3) Screens, (2) Screens"
+
+mode "Keyboard layout: (c)CH, (e)US" {
+        bindsym c exec "setxkbmap ch", mode "default"
+        bindsym e exec "setxkbmap us intl", mode "default"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+k mode "Keyboard layout: (c)CH, (e)US"
+
 
 bar {
 	i3bar_command /usr/bin/i3bar
@@ -178,18 +188,12 @@ client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $id
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 3%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 3%-
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Media player controls
-bindsym XF86AudioPlay exec spotifyctl play
-bindsym XF86AudioPause exec spotifyctl pause
-bindsym $mod+XF86AudioLowerVolume exec spotifyctl previous
-bindsym $mod+XF86AudioRaiseVolume exec  spotifyctl next
+bindsym $mod+End exec spotifyctl play
+bindsym $mod+Home exec spotifyctl previous
+bindsym $mod+Insert exec  spotifyctl next
 
 ## shortcut
 bindsym $mod+backslash exec vivaldi

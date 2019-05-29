@@ -60,6 +60,12 @@
     dest: "/home/{{ user }}/.zsh.d/"
   with_fileglob: "files/zsh.d/*"
 
+- name: Copy additional bins
+  copy:
+    src: "files/zsh.d/bin"
+    dest: "/home/{{ user }}/.zsh.d/"
+    mode: 0755
+
 - name: Make zsh the default shell
   become: true
   user:

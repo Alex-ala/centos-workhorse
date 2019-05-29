@@ -8,3 +8,5 @@ packages:
   - psutils
   - psmisc
   - jq
+  - cifs-utils
+

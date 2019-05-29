@@ -1,0 +1,8 @@
+---
+
+- name: Copy Spotifyctl
+  become: true
+  copy:
+    src: files/spotifyctl
+    dest: /usr/local/bin/spotifyctl
+    mode: 0755

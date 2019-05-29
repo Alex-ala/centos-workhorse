@@ -39,6 +39,7 @@ Things I want:
         - [x] Pulseaudio utils
         - [x] Script to switch audio devices/modes (Use pagraphcontrol)
         - [ ] Status script for bar
+        - [ ] Bluetooth media keys
     - [x] video
 	    - [x] Display brightness
 	    - Multimonitor scripts
@@ -48,7 +49,10 @@ Things I want:
     - [x] fingerprint (Not gonna happen, see x1-carbon-drivers README)
         - drivers
         - login
-    - [x] Touchpad + Trackpoint
+    - [ ] On(un)dock actions -> video
+    - [ ] Touchpad + Trackpoint
+        - synclient HorizTwoFingerScroll=1
+        - synclient TapButton1=1
     - [x] Mobile (Not gonna happen, see x1-carbon-drivers README)
     - [ ] Backup (Cronopete or similar)
 - tools
@@ -69,33 +73,13 @@ Things I want:
 - [x] docker
 - [x] openvpn
 - [x] vdirsyncer+khal
+- [ ] spotifyctl
 - [ ] diverse liniting tools (shell ansible python yml) TODO: Welche genau?
+- [ ] NetExtender
 
 
 TODO:
 RESTManager in pip package verwandeln
 Alias for keyboard layout switch
 Private Config files backup:
-    - Rambox
-    - vdirsyncer
-    - rambox
     - openvpn
-
-
-i3 Monitor modes:
-- Scaling enabled: 
-    - xrandr --output eDP-1 --scale 0.75x0.75 --dpi 75
-    - xrdb update Xft
-- Scaling disabled: 
-    - xrandr --output eDP-1 --scale 1x1 --dpi 125
-    - xrdb update Xft
-- 3 Monitors: 
-    - Enable scaling
-    - xrdb update Xft
-    - Load 3 monitor setup from arandr
-- 2 Monitors: 
-    - Disable scaling
-    - xrdb update Xft
-    - Load 2 monitor setup from arandr
-- Internal only:
-    - Load 2 Monitor setup from arandr

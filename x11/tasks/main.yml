@@ -7,5 +7,6 @@
       - "xorg-x11-server-Xorg"
       - "xorg-x11-xauth"
       - "xorg-x11-xinit"
+      - "xorg-x11-utils"
       - "dbus-x11"
     state: present
