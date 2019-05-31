@@ -8,9 +8,3 @@
       - "i3lock"
       - "xterm"
     state: present
-
-- name: Install py3status
-  become: true
-  pip:
-    executable: /usr/local/bin/pip3
-    name: py3status

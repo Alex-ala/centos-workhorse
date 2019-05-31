@@ -1,0 +1,20 @@
+---
+
+- name: Install dependenceis
+  become: true
+  package:
+    name:
+      - "bluez-libs-devel"
+      - "python36-devel"
+    state: present
+
+- name: Install py3status
+  become: true
+  pip:
+    executable: /usr/local/bin/pip3
+    name:
+      - py3status
+      - PyBluez
+      - dbus-python
+      - pyudev
+      - i3ipc

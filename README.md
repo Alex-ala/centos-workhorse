@@ -73,7 +73,7 @@ Things I want:
 - [x] docker
 - [x] openvpn
 - [x] vdirsyncer+khal
-- [ ] spotifyctl
+- [ ] spotifyctl + RESTmanager
 - [ ] diverse liniting tools (shell ansible python yml) TODO: Welche genau?
 - [ ] NetExtender
 

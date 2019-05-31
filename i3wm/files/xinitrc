@@ -1,7 +1,7 @@
 dbus-update-activation-environment --systemd DISPLAY
 export $(dbus-launch)
 eval $(ssh-agent)
-export PATH="$PATH:$HOME/.zsh.d/bin"
+export PATH="$PATH:$HOME/.zsh.d/bin:/sbin"
 xrandr --output eDP1 --dpi 125
 xrdb ~/.Xresources
 # FINALLY start i3
