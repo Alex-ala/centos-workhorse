@@ -5,3 +5,4 @@
 - include_tasks: configs.yml
 - include_tasks: startup.yml
 - include_tasks: monitor.yml
+- include_tasks: acpi.yml

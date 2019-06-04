@@ -5,3 +5,4 @@ packages:
   - cmake
   - automake
   - unzip
+  - maven

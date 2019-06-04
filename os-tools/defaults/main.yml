@@ -9,4 +9,5 @@ packages:
   - psmisc
   - jq
   - cifs-utils
-
+  - bzip2
+  - duplicity

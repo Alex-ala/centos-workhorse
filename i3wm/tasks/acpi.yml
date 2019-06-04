@@ -1,0 +1,27 @@
+---
+
+- name: copy acpi events
+  become: true
+  copy:
+    src: "files/acpi_scripts/{{ item }}"
+    dest: "/etc/acpi/events/{{ item }}"
+  with_items:
+    - acpi_dock
+    - acpi_undock
+
+- name: copy acpi actions
+  become: true
+  copy:
+    src: "files/acpi_actions/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+    - acpi_dock.sh
+    - acpi_undock.sh
+
+- name: Enable and restart acpid
+  become: true
+  systemd:
+    name: acpid
+    enabled: true
+    state: started

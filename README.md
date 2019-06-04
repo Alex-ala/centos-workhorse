@@ -22,23 +22,23 @@ Things I want:
     - [x] dunst
     - [x] i3lock
     - [x] dmenu
-    - [ ] Conky                     TODO: Config stats on background
+    - [x] Conky                     TODO: Config stats on background
 - [x] feh                           Built without curl, but who needs to open pictures via http
 - [x] copyq                         
 - [x] pcmanfm-qt
 - [x] zsh + plugins                 
 - [x] tmux + new config             
 - system shizzle
-    - [ ] bluetooth
+    - [x] bluetooth
         - [x] pulseaudio-blueooth
         - [x] bluez
         - [x] Script to pair/connect/trust devices (use bluetoothctl or bar)
-        - [ ] Status script for bar
+        - [x] Status script for bar
     - [ ] audio
         - [x] Pulseaudio
         - [x] Pulseaudio utils
         - [x] Script to switch audio devices/modes (Use pagraphcontrol)
-        - [ ] Status script for bar
+        - [x] Status script for bar
         - [ ] Bluetooth media keys
     - [x] video
 	    - [x] Display brightness
@@ -50,7 +50,7 @@ Things I want:
         - drivers
         - login
     - [ ] On(un)dock actions -> video
-    - [ ] Touchpad + Trackpoint
+    - [x] Touchpad + Trackpoint
         - synclient HorizTwoFingerScroll=1
         - synclient TapButton1=1
     - [x] Mobile (Not gonna happen, see x1-carbon-drivers README)
@@ -73,7 +73,7 @@ Things I want:
 - [x] docker
 - [x] openvpn
 - [x] vdirsyncer+khal
-- [ ] spotifyctl + RESTmanager
+- [x] spotifyctl + RESTmanager
 - [ ] diverse liniting tools (shell ansible python yml) TODO: Welche genau?
 - [ ] NetExtender
 

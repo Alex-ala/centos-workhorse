@@ -1,5 +1,15 @@
 ---
 
+- name: Install pip packages
+  become: true
+  pip:
+    executable: /usr/local/bin/pip3
+    name:
+      - requests_oauthlib
+      - flask
+      - wtforms
+    state: present
+
 - name: Copy Spotifyctl
   become: true
   copy:

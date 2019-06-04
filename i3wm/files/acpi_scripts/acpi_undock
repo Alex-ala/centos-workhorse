@@ -1,0 +1,5 @@
+# /etc/acpi/events/thinkpad-dock-lenovo
+# This is called when the Thinkpad docks in a series 3 docking station
+
+event=ibm/hotkey LEN0268:00 00000080 00004011
+action=/usr/local/bin/acpi_undock.sh

@@ -1,0 +1,14 @@
+---
+
+- name: Install snap
+  become: true
+  yum:
+    name: snapd
+    state: present
+
+- name: Enable snap
+  become: true
+  systemd:
+    name: snapd
+    state: started
+    enabled: true
