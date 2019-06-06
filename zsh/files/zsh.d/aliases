@@ -16,6 +16,16 @@ alias dps='docker ps -a'
 alias dka='for i in `docker ps -aq`; do docker kill $i; docker rm $i; done' 
 alias di='docker images'
 
+# MOLECULE
+alias mi='molecule idempotence'
+alias mc='molecule converge'
+alias mt='molecule verify'
+alias mta='molecule test'
+alias md='molecule destroy'
+
+# ANSIBLE
+
+
 # GIT
 gb() {
 	if [[ -z $1 ]]; then echo "Specify branch name"; exit 1; fi
@@ -37,6 +47,7 @@ ssh() {
         command ssh "$@"
     fi
 }
+
 
 # HARDWARE
 

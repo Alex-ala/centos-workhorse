@@ -1,0 +1,6 @@
+---
+
+- name: Install linphone
+  flatpak:
+    name: https://linphone.org/flatpak/linphone.flatpakref
+    state: present

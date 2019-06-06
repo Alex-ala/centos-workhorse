@@ -1,0 +1,3 @@
+# custom IntelliJ IDEA properties
+# https://intellij-support.jetbrains.com/hc/en-us/community/posts/360001411659-Lose-Focus-after-Switching-Workspace-in-i3wm
+suppress.focus.stealing=false

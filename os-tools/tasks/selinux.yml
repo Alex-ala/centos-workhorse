@@ -1,0 +1,12 @@
+---
+
+- name: check if there is an /etc/selinux/config  # docker compatible without need to install selinux packages
+  stat:
+    path: /etc/selinux/config
+  register: selinux_config_file
+
+- name: Disable SeLinux
+  become: true
+  selinux:
+    state: disabled
+  when: selinux_config_file.stat.exists

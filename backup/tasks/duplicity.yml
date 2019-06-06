@@ -1,0 +1,21 @@
+---
+
+- name: Install duplicity
+  become: true
+  yum:
+    name: duplicity
+    state: present
+
+- name: Copy backup-script
+  copy:
+    src: files/backup
+    dest: "/home/{{ user }}/.zsh.d/bin/backup"
+    mode: 0700
+
+- name: Enable cronjob
+  cron:
+    name: backup
+    user: alex
+    minute: 0
+    hour: 13
+    job: "/usr/local/bin/backup"

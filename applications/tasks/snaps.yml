@@ -1,0 +1,7 @@
+---
+
+- name: Install Snaps
+  become: true
+  snap:
+    name: remmina
+    state: present

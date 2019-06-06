@@ -5,3 +5,12 @@
   package:
     name: "{{ packages }}"
     state: present
+
+- name: Install molecule
+  become: true
+  pip:
+    executable: /usr/local/bin/pip3
+    name:
+      - molecule
+      - pytest-xdist
+      - testinfra

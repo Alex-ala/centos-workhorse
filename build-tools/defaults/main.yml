@@ -6,3 +6,4 @@ packages:
   - automake
   - unzip
   - maven
+  - ShellCheck

@@ -14,4 +14,6 @@ xrandr \
 	--output HDMI-1 --off \
 	--output DP-2 --off \
 	--output DP-1 --off
-i3-msg restart 
+i3-msg restart
+killall conky || true
+conky -d -c ~/.i3/conky.conf

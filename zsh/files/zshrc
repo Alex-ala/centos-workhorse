@@ -37,6 +37,7 @@ zplug "valentinocossar/sublime", use:sublime.plugin.zsh
 zplug "webyneter/docker-aliases", use:docker-aliases.plugin.zsh
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.plugin.zsh
 zplug "zsh-users/zsh-history-substring-search", use:zsh-history-substring-search.plugin.zsh
+zplug "plugins/docker", from:oh-my-zsh
 zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

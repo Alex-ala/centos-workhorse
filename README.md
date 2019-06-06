@@ -74,8 +74,10 @@ Things I want:
 - [x] openvpn
 - [x] vdirsyncer+khal
 - [x] spotifyctl + RESTmanager
-- [ ] diverse liniting tools (shell ansible python yml) TODO: Welche genau?
+- [x] diverse liniting tools (shell ansible python yml) TODO: Welche genau?
 - [ ] NetExtender
+- [x] Disable SELinux
+- [x] Molecule :/ 
 
 
 TODO:

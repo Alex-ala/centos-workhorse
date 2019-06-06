@@ -1,15 +1,10 @@
 ---
 
 - include_tasks: snap.yml
+- include_tasks: selinux.yml
 
 - name: Install os tools
   become: true
   package:
     name: "{{ packages }}"
     state: present
-
-#- name: Install Remmina
-#  become: true
-#  snap:
-#    name: remmina
-#    state: present
