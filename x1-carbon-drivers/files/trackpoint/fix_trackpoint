@@ -1,5 +1,6 @@
 #!/bin/bash
-echo -n "none" > /sys/bus/serio/devices/serio1/drvctl
-echo -n "reconnect" > /sys/bus/serio/devices/serio1/drvctl
+echo -n "none" | sudo tee /sys/bus/serio/devices/serio1/drvctl
+echo -n "reconnect" | sudo tee /sys/bus/serio/devices/serio1/drvctl
+sleep 1
 synclient HorizTwoFingerScroll=1
 synclient TapButton1=1

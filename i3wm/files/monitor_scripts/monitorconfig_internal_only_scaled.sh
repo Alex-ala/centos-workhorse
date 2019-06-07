@@ -16,4 +16,4 @@ xrandr \
 	--output DP-1 --off
 i3-msg restart
 killall conky || true
-conky -d -c ~/.i3/conky.conf
+conky -d -c ~/.i3/conky_scaled.conf

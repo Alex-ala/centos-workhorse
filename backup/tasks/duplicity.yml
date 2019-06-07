@@ -7,10 +7,11 @@
     state: present
 
 - name: Copy backup-script
+  become: true
   copy:
     src: files/backup
-    dest: "/home/{{ user }}/.zsh.d/bin/backup"
-    mode: 0700
+    dest: "/usr/local/bin/backup"
+    mode: 0755
 
 - name: Enable cronjob
   cron:
