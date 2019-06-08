@@ -8,9 +8,9 @@ echo "Controller~${OWN_MAC}"
 echo "Powered~${POWERED}"
 echo "Discoverable~${DISCOVERABLE}"
 IFS=$'\n'
-for device in $PAIRED ; do
+for device in ${PAIRED} ; do
     mac=$(echo "${device}" | cut -d ' ' -f1)
     device_connected=$(echo "info ${mac}" | bluetoothctl | awk '/Connected/{print $2;}')
-    device=$(echo "${device}" | cut -d ' ' -f2)
+    device=$(echo "${device}" | cut -d ' ' -f2-)
     echo "${device}~${device_connected}"
 done

@@ -21,7 +21,8 @@ function define_graphs()
     start_x = (screen_width / 10) + 50
     end_x = screen_width - (screen_width / 10) - 50
     arc_base_radius = screen_width / 10
-
+    box_width = end_x - start_x
+    box_height = end_y - start_y
     --------------------------------------------------------------------------------
     --                                                                    gauge DATA
     gauge = {
@@ -508,7 +509,7 @@ end
 
 -------------------------------------------------------------------------------
 --                                                           draw_ring_captions
--- loads data and displays gauges
+-- Writes gauge captions
 --
 function draw_ring_captions(display)
     cairo_set_source_rgb(display,1,1,1)
@@ -529,11 +530,11 @@ function draw_ring_captions(display)
     cairo_move_to(display, start_x + 5 , start_y + arc_base_radius - (thickness + 3)*8)
     cairo_show_text(display, "CPU 7")
 
-    cairo_move_to(display, end_x - 40 , start_y + arc_base_radius - thickness)
+    cairo_move_to(display, end_x - 45 , start_y + arc_base_radius - thickness)
     cairo_show_text(display, "/")
-    cairo_move_to(display, end_x - 40 , start_y + arc_base_radius - (thickness + 3)*2)
+    cairo_move_to(display, end_x - 45 , start_y + arc_base_radius - (thickness + 3)*2)
     cairo_show_text(display, "/home")
-    cairo_move_to(display, end_x - 40 , start_y + arc_base_radius - (thickness + 3)*3)
+    cairo_move_to(display, end_x - 45 , start_y + arc_base_radius - (thickness + 3)*3)
     cairo_show_text(display, "/backup")
 
     cairo_move_to(display, end_x - 75 , end_y - arc_base_radius + thickness + 3)
@@ -545,13 +546,16 @@ function draw_ring_captions(display)
     cairo_move_to(display, end_x - 75 , end_y - arc_base_radius + (thickness + 3)*4)
     cairo_show_text(display, "LAN Up")
 
+    cairo_move_to(display, start_x + 5, end_y - arc_base_radius + thickness + 7)
+    cairo_show_text(display, "MEM")
+
     cairo_new_path(display)
 
 end
 
 -------------------------------------------------------------------------------
---                                                           draw_ring_captions
--- loads data and displays gauges
+--                                                                     draw_box
+-- Draws outer box
 --
 function draw_box(display)
     cairo_set_source_rgb(display,1,1,1)
@@ -575,6 +579,216 @@ function draw_box(display)
 end
 
 -------------------------------------------------------------------------------
+--                                                               draw_bluetooth
+-- Draws bluetooth stats
+--
+function draw_bluetooth(display)
+    bt_width = 250
+    bt_start_x = start_x + (box_width/2) - (bt_width/2)
+    bt_start_y = start_y + 5
+
+    cairo_set_source_rgb(display,0.4,0.4,0.9)
+    cairo_stroke(display)
+    cairo_move_to(display, bt_start_x, bt_start_y)
+    cairo_line_to(display, bt_start_x + bt_width, bt_start_y)
+    cairo_line_to(display, bt_start_x + bt_width, bt_start_y+150)
+    cairo_line_to(display, bt_start_x, bt_start_y+150)
+    cairo_line_to(display, bt_start_x, bt_start_y)
+    cairo_stroke_preserve(display)
+    cairo_new_path(display)
+
+    bt_state = conky_parse("${exec ~/.i3/bluetooth.sh}")
+    local t = {}
+    for str in string.gmatch(bt_state, "([^~\n]+)") do
+        table.insert(t, str)
+    end
+    local values={}
+    local i=1
+    for i=1,#t,2 do
+        if i == 7 then
+            cairo_set_source_rgb(display,0.4,0.4,0.9)
+            cairo_stroke(display)
+            cairo_move_to(display, bt_start_x+10, bt_start_y+(8*i)-9)
+            cairo_line_to(display,bt_start_x+bt_width, bt_start_y+(8*i)-9)
+            cairo_stroke_preserve(display)
+            cairo_new_path(display)
+        end
+        if i >=7 then
+            if t[i+1] == "no" then
+                cairo_set_source_rgb(display,0.4,0.4,0.9)
+            else
+                cairo_set_source_rgb(display,0.4,0.9,0.4)
+            end
+        end
+        cairo_move_to(display, bt_start_x+10, bt_start_y+(8*i)+3)
+        cairo_show_text(display,t[i])
+        cairo_move_to(display, bt_start_x+150, bt_start_y+(8*i)+3)
+        cairo_show_text(display,t[i+1])
+    end
+    for key,str in pairs(values) do
+        print(key)
+
+    end
+
+
+    cairo_new_path(display)
+
+end
+
+
+-------------------------------------------------------------------------------
+--                                                                 draw_network
+-- Draws network stats
+--
+function draw_network(display)
+    wifi_width = 250
+    wifi_start_x = start_x + (box_width/2) - (wifi_width/2)
+    wifi_start_y = end_y - 155
+
+    cairo_set_source_rgb(display,0.4,0.9,0.4)
+    cairo_stroke(display)
+    cairo_move_to(display, wifi_start_x, wifi_start_y)
+    cairo_line_to(display, wifi_start_x + wifi_width, wifi_start_y)
+    cairo_line_to(display, wifi_start_x + wifi_width, wifi_start_y+150)
+    cairo_line_to(display, wifi_start_x, wifi_start_y+150)
+    cairo_line_to(display, wifi_start_x, wifi_start_y)
+    cairo_stroke_preserve(display)
+    cairo_new_path(display)
+
+    wifi_state = conky_parse("${exec ~/.i3/network.sh}")
+    local t = {}
+    for str in string.gmatch(wifi_state, "([^~\n]+)") do
+        table.insert(t, str)
+    end
+    local values={}
+    local i=1
+    for i=1,#t,2 do
+        if i == 7 then
+            cairo_set_source_rgb(display,0.4,0.9,0.4)
+            cairo_stroke(display)
+            cairo_move_to(display, wifi_start_x+10, wifi_start_y+(8*i)-9)
+            cairo_line_to(display,wifi_start_x+wifi_width, wifi_start_y+(8*i)-9)
+            cairo_stroke_preserve(display)
+            cairo_new_path(display)
+        end
+        cairo_move_to(display, wifi_start_x+10, wifi_start_y+(8*i)+3)
+        cairo_show_text(display,t[i])
+        cairo_move_to(display, wifi_start_x+150, wifi_start_y+(8*i)+3)
+        cairo_show_text(display,t[i+1])
+    end
+    for key,str in pairs(values) do
+        print(key)
+
+    end
+
+
+    cairo_new_path(display)
+
+end
+
+
+-------------------------------------------------------------------------------
+--                                                                  draw_topcpu
+-- Draws network stats
+--
+function draw_topcpu(display)
+    topcpu_width = 250
+    topcpu_start_x = start_x + 90
+    topcpu_start_y = start_y + 5
+
+    cairo_set_source_rgb(display,0.7,0.7,0.7)
+    cairo_stroke(display)
+    cairo_move_to(display, topcpu_start_x, topcpu_start_y)
+    cairo_line_to(display, topcpu_start_x + topcpu_width, topcpu_start_y)
+    cairo_line_to(display, topcpu_start_x + topcpu_width, topcpu_start_y+150)
+    cairo_line_to(display, topcpu_start_x, topcpu_start_y+150)
+    cairo_line_to(display, topcpu_start_x, topcpu_start_y)
+    cairo_stroke_preserve(display)
+    cairo_new_path(display)
+
+    for i = 1, 10 do
+        name = conky_parse(string.format("${top name %s}",i))
+        pid = conky_parse(string.format("${top pid %s}",i))
+        cpu = conky_parse(string.format("${top cpu %s}",i))
+        cairo_move_to(display, topcpu_start_x+10, topcpu_start_y+(12*i)+5)
+        cairo_show_text(display,pid)
+        cairo_move_to(display, topcpu_start_x+50, topcpu_start_y+(12*i)+5)
+        cairo_show_text(display,name)
+        cairo_move_to(display, topcpu_start_x+190, topcpu_start_y+(12*i)+5)
+        cairo_show_text(display,cpu)
+    end
+    cairo_new_path(display)
+end
+
+
+-------------------------------------------------------------------------------
+--                                                                  draw_topmem
+-- Draws network stats
+--
+function draw_topmem(display)
+    topmem_width = 250
+    topmem_start_x = start_x + 90
+    topmem_start_y = end_y -155
+    cairo_set_source_rgb(display,0.7,0.7,0.7)
+    cairo_stroke(display)
+    cairo_move_to(display, topmem_start_x, topmem_start_y)
+    cairo_line_to(display, topmem_start_x + topmem_width, topmem_start_y)
+    cairo_line_to(display, topmem_start_x + topmem_width, topmem_start_y+150)
+    cairo_line_to(display, topmem_start_x, topmem_start_y+150)
+    cairo_line_to(display, topmem_start_x, topmem_start_y)
+    cairo_stroke_preserve(display)
+    cairo_new_path(display)
+
+    for i = 1, 10 do
+        name = conky_parse(string.format("${top_mem name %s}",i))
+        pid = conky_parse(string.format("${top_mem pid %s}",i))
+        mem = conky_parse(string.format("${top_mem mem_res %s}",i))
+        cairo_move_to(display, topmem_start_x+10, topmem_start_y+(12*i)+5)
+        cairo_show_text(display,pid)
+        cairo_move_to(display, topmem_start_x+50, topmem_start_y+(12*i)+5)
+        cairo_show_text(display,name)
+        cairo_move_to(display, topmem_start_x+190, topmem_start_y+(12*i)+5)
+        cairo_show_text(display,mem)
+    end
+    cairo_new_path(display)
+end
+
+-------------------------------------------------------------------------------
+--                                                                   draw_topio
+-- Draws IO stats
+--
+function draw_topio(display)
+    topio_width = 270
+    topio_start_x = end_x - topio_width - 90
+    topio_start_y = start_y + 5
+    cairo_set_source_rgb(display,0.7,0.7,0.7)
+    cairo_stroke(display)
+    cairo_move_to(display, topio_start_x, topio_start_y)
+    cairo_line_to(display, topio_start_x + topio_width, topio_start_y)
+    cairo_line_to(display, topio_start_x + topio_width, topio_start_y+150)
+    cairo_line_to(display, topio_start_x, topio_start_y+150)
+    cairo_line_to(display, topio_start_x, topio_start_y)
+    cairo_stroke_preserve(display)
+    cairo_new_path(display)
+
+    for i = 1, 10 do
+        name = conky_parse(string.format("${top_io name %s}",i))
+        pid = conky_parse(string.format("${top_io pid %s}",i))
+        io_rate = conky_parse(string.format("${top_io io_write %s}",i))
+        io_rate2 = conky_parse(string.format("${top_io io_read %s}",i))
+        cairo_move_to(display, topio_start_x+10, topio_start_y+(12*i)+5)
+        cairo_show_text(display,pid)
+        cairo_move_to(display, topio_start_x+50, topio_start_y+(12*i)+5)
+        cairo_show_text(display,name)
+        cairo_move_to(display, topio_start_x+160, topio_start_y+(12*i)+5)
+        cairo_show_text(display,io_rate)
+        cairo_move_to(display, topio_start_x+220, topio_start_y+(12*i)+5)
+        cairo_show_text(display,io_rate2)
+    end
+    cairo_new_path(display)
+end
+
+-------------------------------------------------------------------------------
 --                                                                         MAIN
 function conky_main()
     if conky_window == nil then
@@ -590,6 +804,11 @@ function conky_main()
     define_graphs()
     draw_ring_captions(display)
     draw_box(display)
+    draw_bluetooth(display)
+    draw_network(display)
+    draw_topcpu(display)
+    draw_topmem(display)
+    draw_topio(display)
     update_num = tonumber(updates)
 
     if update_num > 5 then
