@@ -24,6 +24,8 @@ alias mta='molecule test'
 alias md='molecule destroy'
 
 # ANSIBLE
+alias ad='ansible-vault decrypt'
+alias ae='ansible-vault encrypt'
 
 
 # GIT

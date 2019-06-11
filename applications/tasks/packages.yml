@@ -11,7 +11,8 @@
       - fuse
       - docker-ce
       - openvpn
-      - thunderbird
+      - evolution
+      - evolution-ews
       - gnome-screenshot
       - kpcli
 
