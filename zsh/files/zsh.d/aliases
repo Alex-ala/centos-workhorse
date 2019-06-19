@@ -18,6 +18,7 @@ alias di='docker images'
 
 # MOLECULE
 alias mi='molecule idempotence'
+alias ml='molecule lint'
 alias mc='molecule converge'
 alias mt='molecule verify'
 alias mta='molecule test'

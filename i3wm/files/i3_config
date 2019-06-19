@@ -1,6 +1,7 @@
 # Setup monitors
 set $monitor1 "Virtual1"
 set $monitor2 "Virtual2"
+set $monitor3 "Virtual3"
 
 set $tag1 
 set $tag2 
