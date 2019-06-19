@@ -4,7 +4,7 @@ if [[ $DPI != "72x72" ]]; then
 	sed -i "s/Xft.dpi:.*/Xft.dpi: 72/" ~/.Xresources
 	xrdb -merge ~/.Xresources
 fi
-xrandr \                                                                                                                                                                                                                       0.17 
+xrandr \
         --dpi 72 \
         --output DP-2-1 --off \
         --output DP-2-2 --off \
