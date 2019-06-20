@@ -6,5 +6,5 @@
 - include_tasks: slack.yml
 - include_tasks: calendar.yml
 - include_tasks: spotifyctl.yml
-- include_tasks: flatpaks.yml
+- include_tasks: jitsi.yml
 - include_tasks: snaps.yml

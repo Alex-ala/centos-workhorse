@@ -1,0 +1,29 @@
+---
+
+- name: Check if jitsi is installed
+  shell: which jitsi
+  changed_when: false
+  ignore_errors: yes
+  register: jitsi
+
+- block:
+  - name: Copy Speex workaround
+    become: true
+    copy:
+      src: speexdsp-1-1.el7.noarch.rpm
+      dest: /srv/yum-repo/
+
+  - name: Update repo
+    become: true
+    shell: createrepo /srv/yum-repo
+
+  - name: Install jitsi
+    become: true
+    yum:
+      name:
+        - speexdsp-1-1
+        - jitsi
+      update_cache: true
+      state: present
+
+  when: jitsi.rc != 0 or update_jitsi is defined

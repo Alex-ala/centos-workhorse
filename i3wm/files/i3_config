@@ -200,7 +200,7 @@ bindsym $mod+Insert exec  spotifyctl next
 bindsym $mod+backslash exec vivaldi
 bindsym $mod+dollar exec vivaldi
 bindsym $mod+Print exec scrot
-bindsym $mod+Shift+v exec "copyq select 1"
+bindsym $mod+Shift+v exec "copyq tab Zwischenablage select 1 && copyq paste"
 bindsym $mod+c exec "copyq show"
 
 exec --no-startup-id ~/.i3/i3-startup
