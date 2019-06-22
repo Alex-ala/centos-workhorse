@@ -11,12 +11,12 @@
 - name: Copy trackpoint service
   become: true
   copy:
-    src: files/trackpoint/fix_trackpoint.service
-    dest: /etc/systemd/system/fix_trackpoint.service
+    src: files/trackpoint/fix_trackpoint@.service
+    dest: /etc/systemd/system/fix_trackpoint@.service
 
 - name: Enable service
   become: true
   systemd:
-    name: fix_trackpoint
+    name: "fix_trackpoint@{{ user }}"
     enabled: true
     daemon-reload: true

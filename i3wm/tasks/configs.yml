@@ -34,7 +34,7 @@
   systemd:
     daemon_reload: true
     enabled: true
-    name: "i3lock@alex"
+    name: "i3lock@{{ user }}"
 
 - name: Copy XResources
   copy:

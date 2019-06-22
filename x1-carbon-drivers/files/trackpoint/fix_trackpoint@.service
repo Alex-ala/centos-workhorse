@@ -3,8 +3,6 @@ Description=Reconnect trackpoint after wakeup
 After=sleep.target
 
 [Service]
+User=%I
 Type=simple
 ExecStart=/usr/local/bin/fix_trackpoint
-
-[Install]
-WantedBy=sleep.target
