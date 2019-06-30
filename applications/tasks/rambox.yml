@@ -24,4 +24,11 @@
         update_cache: true
         state: present
 
+    - name: Create Rambox link
+      become: true
+      file:
+        src: /opt/Rambox/rambox
+        dest: /usr/local/bin/rambox
+        state: link
+
   when: rambox.rc != 0 or update_rambox is defined

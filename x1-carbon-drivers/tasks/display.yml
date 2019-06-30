@@ -14,19 +14,6 @@
   become: true
   copy:
     src: files/video/fix_video
-    dest: /usr/local/bin/fix_video
+    dest: /usr/lib/systemd/system-sleep/fix_video
     owner: root
     mode: 0755
-
-- name: Copy fix service
-  become: true
-  copy:
-    src: files/video/fix_video@.service
-    dest: /etc/systemd/system/fix_video@.service
-
-- name: Enable service
-  become: true
-  systemd:
-    name: "fix_video@{{ user }}"
-    enabled: true
-    daemon-reload: true

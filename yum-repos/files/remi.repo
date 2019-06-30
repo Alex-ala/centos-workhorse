@@ -1,0 +1,11 @@
+[remi-repo]
+name=remi repo
+baseurl=http://rpms.famillecollet.com/enterprise/7/remi/x86_64/
+enabled=1
+gpgcheck=0
+
+[remi-php73]
+name=remi php repo
+baseurl=http://rpms.famillecollet.com/enterprise/7/php73/x86_64/
+enabled=1
+gpgcheck=0

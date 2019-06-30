@@ -1,0 +1,5 @@
+[jitsi]
+name=Jitsi
+baseurl=https://download.jitsi.org/jitsi/rpm/
+enabled=1
+gpgcheck=0

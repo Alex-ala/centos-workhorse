@@ -1,8 +1,8 @@
 #!/bin/sh
 DPI=$(xdpyinfo | grep resolution | grep -oE "[0-9]+x[0-9]+")
 if [[ $DPI != "125x125" ]]; then
-	sed -i "s/Xft.dpi:.*/Xft.dpi: 125/" ~/.Xresources
-	xrdb -merge ~/.Xresources
+	sed -i "s/Xft.dpi:.*/Xft.dpi: 125/" /home/alex/.Xresources
+	xrdb -merge /home/alex/.Xresources
 fi
 xrandr \
 	--dpi 125 \
@@ -16,4 +16,5 @@ xrandr \
 	--output DP-1 --off
 i3-msg restart
 killall conky || true
-conky -d -c ~/.i3/conky.conf
+sleep 5
+conky -d -c /home/alex/.i3/conky.conf

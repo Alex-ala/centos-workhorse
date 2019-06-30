@@ -1,5 +1,5 @@
 #!/bin/bash
 export DISPLAY=":0"
-export XAUTHORITY="/home/$USER/.Xauthority"
-xset dpms force on
+export XAUTHORITY="/home/alex/.Xauthority"
 /usr/local/bin/monitorconfig_internal_only.sh
+xset dpms force on

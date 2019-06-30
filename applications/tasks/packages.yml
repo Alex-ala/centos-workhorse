@@ -15,6 +15,10 @@
       - evolution-ews
       - gnome-screenshot
       - kpcli
+      - php-cli
+      - ant
+      - ant-contrib
+      - php-theseer-autoload
 
 - name: Add user to Docker group
   become: true

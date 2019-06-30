@@ -149,6 +149,15 @@ mode "Keyboard layout: (c)CH, (e)US" {
 }
 bindsym $mod+Shift+k mode "Keyboard layout: (c)CH, (e)US"
 
+mode "Fix: (t)rackpoint, (d)isplay" {
+        bindsym t exec "/usr/local/bin/fix_trackpoint", mode "default"
+        bindsym d exec "/usr/local/bin/fix_video", mode "default"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+f mode "Fix: (t)rackpoint, (d)isplay"
+
 
 bar {
 	i3bar_command /usr/bin/i3bar
