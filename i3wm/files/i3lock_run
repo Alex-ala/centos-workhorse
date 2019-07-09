@@ -1,3 +1,4 @@
 #!/bin/sh
+export DISPLAY="$(/usr/local/bin/getX)"
 i3lock -t -i ~/.i3/lockscreen.png -c ffffff
 #xset dpms force standby

@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo -u alex -H sh -c "/usr/local/bin/fix_video $1"
+systemctl restart network

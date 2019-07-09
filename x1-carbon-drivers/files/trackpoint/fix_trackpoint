@@ -1,7 +1,6 @@
 #!/bin/bash
-export DISPLAY=":0"
+export DISPLAY="$(/usr/local/bin/getX)"
 export XAUTHORITY="/home/$USER/.Xauthority"
-logger $XAUTHORITY
 echo -n "none" | sudo tee /sys/bus/serio/devices/serio1/drvctl
 echo -n "reconnect" | sudo tee /sys/bus/serio/devices/serio1/drvctl
 sleep 1

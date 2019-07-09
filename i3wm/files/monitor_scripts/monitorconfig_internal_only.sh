@@ -9,6 +9,17 @@ xrandr \
 	--output DP-2-1 --off \
 	--output DP-2-2 --off \
 	--output DP-2-3 --off \
+	--output eDP-1 --off \
+	--output HDMI-2 --off \
+	--output HDMI-1 --off \
+	--output DP-2 --off \
+	--output DP-1 --off
+
+xrandr \
+	--dpi 125 \
+	--output DP-2-1 --off \
+	--output DP-2-2 --off \
+	--output DP-2-3 --off \
 	--output eDP-1 --mode 2560x1440 --pos 0x0 --rotate normal --scale 1x1 --primary \
 	--output HDMI-2 --off \
 	--output HDMI-1 --off \

@@ -13,7 +13,23 @@
 - name: Copy fix script
   become: true
   copy:
+    src: files/video/on_wakeup
+    dest: /usr/lib/systemd/system-sleep/on_wakeup
+    owner: root
+    mode: 0755
+
+- name: Copy fix script
+  become: true
+  copy:
     src: files/video/fix_video
-    dest: /usr/lib/systemd/system-sleep/fix_video
+    dest: /usr/local/bin/fix_video
+    owner: root
+    mode: 0755
+
+- name: Copy fix script
+  become: true
+  copy:
+    src: files/video/getX
+    dest: /usr/local/bin/getX
     owner: root
     mode: 0755

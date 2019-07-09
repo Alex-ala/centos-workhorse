@@ -129,16 +129,18 @@ mode "resize" {
 }
 bindsym $mod+Shift+r mode "resize"
 
-mode "Monitors: (i)nternal, (n)ative internal, (3) Screens, (2) Screens" {
+mode "Monitors: (i)nternal, (n)ative internal, (h)dmi output HD, (H)dmi output 2k, (3) Screens, (2) Screens" {
         bindsym i exec /usr/local/bin/monitorconfig_internal_only_scaled.sh
         bindsym n exec /usr/local/bin/monitorconfig_internal_only.sh
+        bindsym h exec /usr/local/bin/monitorconfig_with_hdmi_hd.sh
+        bindsym H exec /usr/local/bin/monitorconfig_with_hdmi_2k.sh
         bindsym 3 exec /usr/local/bin/monitorconfig_work3.sh
         bindsym 2 exec /usr/local/bin/monitorconfig_work2.sh
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+Shift+m mode "Monitors: (i)nternal, (n)ative internal, (3) Screens, (2) Screens"
+bindsym $mod+Shift+m mode "Monitors: (i)nternal, (n)ative internal, (h)dmi output HD, (H)dmi output 2k, (3) Screens, (2) Screens"
 
 mode "Keyboard layout: (c)CH, (e)US" {
         bindsym c exec "setxkbmap ch", mode "default"

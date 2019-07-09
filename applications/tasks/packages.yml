@@ -19,6 +19,8 @@
       - ant
       - ant-contrib
       - php-theseer-autoload
+      - sshuttle
+      - openvpn
 
 - name: Add user to Docker group
   become: true

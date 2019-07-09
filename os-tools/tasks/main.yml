@@ -2,6 +2,7 @@
 
 - include_tasks: snap.yml
 - include_tasks: selinux.yml
+- include_tasks: sysctl.yml
 
 - name: Install os tools
   become: true

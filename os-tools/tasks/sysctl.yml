@@ -1,0 +1,8 @@
+---
+
+- name: Enable forwarding for docker
+  become: true
+  sysctl:
+    name: net.ipv4.conf.all.forwarding
+    value: 1
+    state: present
