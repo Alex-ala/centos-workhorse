@@ -6,3 +6,10 @@
     name: net.ipv4.conf.all.forwarding
     value: 1
     state: present
+
+- name: Increase inotify limit
+  become: true
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: 524288
+    state: present

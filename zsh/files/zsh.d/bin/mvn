@@ -1,0 +1,1 @@
+docker run --rm -e PACKAGECLOUD_JAVA_LIBS_READ_TOKEN=${PACKAGECLOUD_JAVA_LIBS_READ_TOKEN} -v maven-repo:/root/.m2 -v ${PWD}:/usr/src/maven -w /usr/src/maven maven:3-jdk-8 mvn $@

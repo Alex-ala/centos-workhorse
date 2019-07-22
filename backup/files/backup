@@ -16,8 +16,8 @@ DIFF_FULL=$(($CURRENT_TIMESTAMP - $LAST_FULL_TIMESTAMP))
 export PASSPHRASE=$(sudo cat /etc/backup_passphrase)
 if [[ ${DIFF_FULL} -gt 604800 ]]; then
     echo "Last full backup is older than 7 days, doing a new full"
-    sudo --preserve-env="PASSPHRASE" duplicity full /home file:///backup/home
+    sudo --preserve-env="PASSPHRASE" duplicity full --exclude=/home/webshop /home file:///backup/home
 else
     echo "Performing an incremental backup"
-    sudo --preserve-env="PASSPHRASE" duplicity incremental /home file:///backup/home
+    sudo --preserve-env="PASSPHRASE" duplicity incremental  --exclude=/home/webshop /home file:///backup/home
 fi
