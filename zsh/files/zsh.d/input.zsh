@@ -15,8 +15,8 @@ key[CtrlRight]="${terminfo[kRIT5]}"
 [[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"    quoted-insert
 [[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"    delete-char
 [[ -n "${key[ShiftTab]}"  ]] && bindkey -- "${key[ShiftTab]}"  reverse-menu-complete
-[[ -n "${key[CtrlRight]}"    ]] && bindkey -- "${key[CtrlRight]}"    end-of-line
-[[ -n "${key[CtrlLeft]}"    ]] && bindkey -- "${key[CtrlLeft]}"    beginning-of-line
+[[ -n "${key[CtrlRight]}"    ]] && bindkey -- "${key[CtrlRight]}"    forward-word
+[[ -n "${key[CtrlLeft]}"    ]] && bindkey -- "${key[CtrlLeft]}"    backward-word
 
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	autoload -Uz add-zle-hook-widget

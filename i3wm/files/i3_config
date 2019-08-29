@@ -20,13 +20,14 @@ font pango:FuraMono Nerd Font Mono:style=Medium,Regular
 new_window pixel 2
 floating_modifier $mod
 focus_follows_mouse no
+mouse_warping none
 
 # ---------------
 # Bind keys....
 # ---------------
 bindsym $mod+Return exec xterm
 bindsym $mod+q kill
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec "source ~/.zsh.d/aliases && export PATH=$PATH:~/.zsh.d/bin/:~/.local/bin:/var/lib/snapd/snap/bin && dmenu_run"
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+r exec "i3-input -F 'title_format %s' -P 'New name: '"
 

@@ -5,3 +5,10 @@
   snap:
     name: remmina
     state: present
+
+- name: Install Snaps
+  become: true
+  snap:
+    name: drawio
+    channel: edge
+    state: present
