@@ -3,3 +3,4 @@
 packages:
   - python36
   - python36-setuptools
+  - python36-gobject
