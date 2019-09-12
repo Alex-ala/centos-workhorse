@@ -5,3 +5,5 @@ packages:
   - conky
   - libreoffice
   - filezilla
+  - at
+  - gnuplot
