@@ -29,3 +29,11 @@
     append: true
     groups:
       - docker
+
+- name: Install pip packages
+  become: true
+  pip:
+    executable: /usr/local/bin/pip3
+    name:
+      - blink1
+    state: present
