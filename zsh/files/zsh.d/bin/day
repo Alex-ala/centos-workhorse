@@ -1,0 +1,2 @@
+#!/bin/bash
+redshift -O 5500K

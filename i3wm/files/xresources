@@ -21,6 +21,7 @@ XTerm*scrollTryOutput:    false
 XTerm*scrollTtyKeypress:  true
 XTerm*urgentOnBell:       true
 XTerm*visualBell:         false
+XTerm*saveLines:          50000
 
 
 ! special
