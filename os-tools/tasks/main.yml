@@ -9,3 +9,9 @@
   package:
     name: "{{ packages }}"
     state: present
+
+- name: Enable CUPS
+  systemd:
+    name: cups
+    state: started
+    enabled: true

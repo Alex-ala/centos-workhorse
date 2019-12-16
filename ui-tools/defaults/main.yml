@@ -7,3 +7,4 @@ packages:
   - filezilla
   - at
   - gnuplot
+  - system-config-printer

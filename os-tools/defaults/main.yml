@@ -12,3 +12,4 @@ packages:
   - bzip2
   - duplicity
   - flatpak
+  - cups
