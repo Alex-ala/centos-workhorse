@@ -11,5 +11,4 @@ packages:
   - cifs-utils
   - bzip2
   - duplicity
-  - flatpak
   - cups

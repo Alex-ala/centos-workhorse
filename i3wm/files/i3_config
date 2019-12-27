@@ -134,7 +134,7 @@ mode "Monitors: (i)nternal, (n)ative internal, (h)dmi output HD, (H)dmi output 2
         bindsym i exec /usr/local/bin/monitorconfig_internal_only_scaled.sh
         bindsym n exec /usr/local/bin/monitorconfig_internal_only.sh
         bindsym h exec /usr/local/bin/monitorconfig_internal_with_hdmi_hd.sh
-        bindsym H exec /usr/local/bin/monitorconfig_internal_with_hdmi_2k.sh
+        bindsym Shift+h exec /usr/local/bin/monitorconfig_internal_with_hdmi_2k.sh
         bindsym 3 exec /usr/local/bin/monitorconfig_work3.sh
         bindsym 2 exec /usr/local/bin/monitorconfig_work2.sh
         # back to normal: Enter or Escape
@@ -146,11 +146,12 @@ bindsym $mod+Shift+m mode "Monitors: (i)nternal, (n)ative internal, (h)dmi outpu
 mode "Keyboard layout: (c)CH, (e)US" {
         bindsym c exec "setxkbmap ch", mode "default"
         bindsym e exec "setxkbmap us intl", mode "default"
+        bindsym d exec "setxkbmap de", mode "default"
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+Shift+k mode "Keyboard layout: (c)CH, (e)US"
+bindsym $mod+Shift+k mode "Keyboard layout: (c)CH, (e)US, (d)DE"
 
 mode "Fix: (t)rackpoint, (d)isplay" {
         bindsym t exec "/usr/local/bin/fix_trackpoint", mode "default"
