@@ -143,7 +143,7 @@ mode "Monitors: (i)nternal, (n)ative internal, (h)dmi output HD, (H)dmi output 2
 }
 bindsym $mod+Shift+m mode "Monitors: (i)nternal, (n)ative internal, (h)dmi output HD, (H)dmi output 2k, (3) Screens, (2) Screens"
 
-mode "Keyboard layout: (c)CH, (e)US" {
+mode "Keyboard layout: (c)CH, (e)US, (d)DE" {
         bindsym c exec "setxkbmap ch", mode "default"
         bindsym e exec "setxkbmap us intl", mode "default"
         bindsym d exec "setxkbmap de", mode "default"
