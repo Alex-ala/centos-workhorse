@@ -9,7 +9,7 @@ if ! mountpoint /backup > /dev/null; then
     exit 1
 fi
 
-LAST_FULL=$(sudo duplicity collection-status file:///backup/home | tee | head -1 | cut -d":" -f2)
+LAST_FULL=$(sudo duplicity collection-status file:///backup/home | tee | head -1 | cut -d":" -f2-)
 LAST_FULL_TIMESTAMP=$(date -d "${LAST_FULL}" +%s || echo "0")
 CURRENT_TIMESTAMP=$(date +%s)
 DIFF_FULL=$(($CURRENT_TIMESTAMP - $LAST_FULL_TIMESTAMP))
