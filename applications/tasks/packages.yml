@@ -21,6 +21,7 @@
       - php-theseer-autoload
       - sshuttle
       - openvpn
+      - kubectl
 
 - name: Add user to Docker group
   become: true
